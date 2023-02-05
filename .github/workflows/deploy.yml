@@ -23,8 +23,8 @@ jobs:
         # Just add a `cd` here if you need to change to another directory.
         mdbook build
         git worktree add gh-pages
-        git config user.name "vinsiny"
-        git config user.email "muffinxb@163.com"
+        git config --local user.name "GitHub Action"
+        git config --global user.email "muffinxb@163.com"
         cd gh-pages
         # Delete the ref to avoid keeping history.
         git update-ref -d refs/heads/gh-pages

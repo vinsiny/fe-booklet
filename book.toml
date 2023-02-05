@@ -1,0 +1,6 @@
+[book]
+authors = ["vinsiny"]
+language = "zh-CN"
+multilingual = false
+src = "src"
+title = "前端小册"

@@ -1,9 +1,9 @@
----
+<!-- ---
 tags: [11月的]
 title: Issue 笔记 链接
 created: '2019-11-07T02:12:52.146Z'
 modified: '2019-11-18T06:44:00.535Z'
----
+--- -->
 # Issue 笔记 [链接](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues?page=4&q=is%3Aissue+is%3Aopen)
 
 ### 1. [写 React / Vue 项目时为什么要在列表组件中写 key，其作用是什么?](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/1)

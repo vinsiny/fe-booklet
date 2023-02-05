@@ -1,9 +1,9 @@
----
+<!-- ---
 tags: [11月的]
 title: Flux、Redux、Mobx
 created: '2019-11-17T06:19:14.373Z'
 modified: '2019-11-17T06:52:37.347Z'
----
+--- -->
 
 # Flux、Redux、Mobx
 

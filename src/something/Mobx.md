@@ -1,9 +1,9 @@
----
+<!-- ---
 tags: [11月的]
 title: Mobx
 created: '2019-11-17T01:38:13.891Z'
 modified: '2019-11-18T05:46:59.209Z'
----
+--- -->
 
 # Mobx
 ## mobx-react 工作原理：

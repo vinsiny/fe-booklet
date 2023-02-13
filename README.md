@@ -8,6 +8,7 @@
 ```bash
 mdbook serve
 ```
+https://doc.vercel.app/webyck/article/5bdc723a6fb9a049c43d1843.html
 ### gh-pages 发布 github acitons 配置
 
 - 自动发布 gh-pages aciton 配置： https://github.com/rust-lang/mdBook/wiki/Automated-Deployment:-GitHub-Actions

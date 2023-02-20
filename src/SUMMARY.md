@@ -2,8 +2,14 @@
 
 - [前端小册](../README.md)
 
-- [打包&编译工具](./打包编译工具/index.md)
-  - [babel插件](./打包编译工具/babel插件.md)
+- [框架](./框架/index.md)
+  - [揭秘React-setState](./框架/揭秘React-setState.md)
+  - [揭秘React-setState-fiber](./框架/setStateV17.md)
+  - [SSR和Nextjs](./框架/ssr和Nextjs.md)
+
+- [打包&编译工具](./打包编译/index.md)
+  - [babel插件](./打包编译/babel插件.md)
+  - [SplitChunks](./打包编译/SplitChunks.md)
 
 - [网络协议](./网络协议/index.md)
   -[CDN原理](./网络协议/CDN原理.md)
@@ -14,9 +20,14 @@
 - [Promise相关](./promise/index.md)
   - [Promise实现](./promise/Promise实现.md)
 
+- [算法](./算法/index.md)
+  - [设计模式](./算法/设计模式.md)
+
 - [CSS世界](./CSS世界/index.md)
   - [CSS盒模型](./CSS世界/CSS盒模型.md)
   - [CSS垂直居中](./CSS世界/CSS垂直居中.md)
+  - [多屏幕尺寸适配](./CSS世界/多屏幕尺寸适配.md)
+
 - [杂七杂八](./something/index.md)
   - [es6](./something/ES6.md)
   - [flux、redux、mobx](./something/Flux&Redux&Mobx.md)

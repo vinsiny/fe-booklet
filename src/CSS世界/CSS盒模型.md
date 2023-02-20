@@ -1,13 +1,13 @@
 ## 第一问：什么是盒模型？
-可以说，页面就是由一个个盒模型堆砌起来的，每个HTML元素都可以叫做盒模型，盒模型由外而内包括：外边距（margin）、边框（border）、填充（亦称内边距）（padding）、内容（content）。它在页面中所占的实际宽度是margin + border + paddint + content 的宽度相加。
+可以说，页面就是由一个个盒模型堆砌起来的，每个HTML元素都可以叫做盒模型，盒模型由外而内包括：外边距（margin）、边框（border）、填充（亦称内边距）（padding）、内容（content）。它在页面中所占的实际宽度是margin + border + padding + content 的宽度相加。
 但是，盒模型有**标准盒模型**和**IE的盒模型**。
 
 ## 第二问：两者的区别是什么？
 
 ### 标准的(W3C)盒模型：
 
-![标准](./标准盒模型.png)
-![IE](./IE盒模型.png)
+![标准](./CSS盒模型/标准盒模型.png)
+![IE](./CSS盒模型/IE盒模型.png)
 
 ## 第三问：怎么设置这两种模型呢？
 很简单，通过设置 `box-sizing:content-box(W3C)/border-box(IE)` 就可以达到自由切换的效果。
@@ -46,7 +46,7 @@
 - height为0了，看得见盒子吗？
 
 答案：如图所示
-![css面试题](./css面试题.png)
+![css面试题](./CSS盒模型/css面试题.png)
 - 整个盒子的大小 = 0 （因为height为0）
 - padding的颜色 = pink（继承content的颜色）
 - border的颜色 = blue（继承color字体的颜色，默认为black）
@@ -88,13 +88,16 @@
 ```
 
 会超出圆形。原因如图所示，是因为border-radius只是改变视觉上的效果，实际上盒子占据的空间还是不变的。
-![css面试题](./css面试题2.png)
+![css面试题](./CSS盒模型/css面试题2.png)
 
 ## 第七问：当元素设置成inline-block会出现什么问题？怎么消除？
 
 这是网易有道的小姐姐面试官的问题，我承认我确实不知道这个问题！
 **真正意义上的inline-block水平呈现的元素间，换行显示或空格分隔的情况下会有间距，很简单的个例子：**
 我们使用CSS更改非inline-block水平元素为inline-block水平，也会有该问题
+
+![7](./CSS盒模型/css面试题7.png)
+
 ```html
 .space a {
     display: inline-block;
@@ -109,7 +112,7 @@
 ```
 
 ### 去除inline-block元素间间距的N种方法：
-1. 元素间留白间距出现的原因就是标签段之间的空格，因此，去掉HTML中的空格，自然间距就木有了。考虑到代码可读性，显然连成一行的写法是不可取的，我们可以：
+1. 元素间留白间距出现的原因就是**标签段之间的空格**，因此，去掉HTML中的空格，自然间距就木有了。考虑到代码可读性，显然连成一行的写法是不可取的，我们可以：
 ```html
 <div class="space">
     <a href="##">
@@ -137,7 +140,7 @@
 2. 使用margin负值
 3. 让闭合标签吃胶囊
 4. 使用font-size:0
-详细的可以看看这篇文章 [去除inline-block元素间间距的N种方法](https://link.juejin.cn/?target=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMzU5NDM5MDg1Mw%3D%3D%26mid%3D2247488739%26idx%3D1%26sn%3D923a3baf01cc56bdcd283cfc2e3dfd2f%26chksm%3Dfe00aec9c97727dfbc55113c1e057ebc03b0a2ab0947b10d6311a24b89446b3f6f29ede4a8cd%26token%3D1664328874%26lang%3Dzh_CN%23rd)
+详细的可以看看这篇文章 [去除inline-block元素间间距的N种方法](http://www.zhangxinxu.com/wordpress/?p=2357)
 
 ## 第八问：行内元素可以设置padding，margin吗？
 - 第一：行内元素与宽度 宽度不起作用
@@ -162,7 +165,7 @@ span{
 }
 ```
 影响左右，不影响上下 ,span包裹的文字左右位置改变，上下位置不变，但背景色会覆盖上面元素的内容。 如图所示：
-![css面试题](./css面试题3.png)
+![css面试题](./CSS盒模型/css面试题3.png)
 **行内元素（inline-block）的padding左右有效 ，但是由于设置padding上下不占页面空间，无法显示效果，所以无效。**
 
 
@@ -255,7 +258,7 @@ h1 {
   <h1>Welcome to ConHugeCo</h1>
 </header>
 ```
-!(css)[./css面试4.png]
+!(css)[./CSS盒模型/css面试4.png]
 
 可以看到其实是header的margin为0，然后h1的margin为1em，因此header和h1的margin发生了重叠，然后header的margin就取1em和0两个值中最大的值了，所以当然取1em啦。
 
@@ -295,7 +298,7 @@ h1 {
 </body>
 </html>
 ```
-!(css)[./css面试5.png]
+!(css)[./CSS盒模型/css面试5.png]
 
 或许你有更好的说法，欢迎下方留言评论补充！！！
 **那该怎么解决margin边距重叠的问题呢？**
@@ -318,6 +321,7 @@ BFC的基本概念–BFC就是“**块级格式化上下文**”的意思，也�
 3. display属性为inline-block、table-cell、table-caption、flex、inline-flex
 4. overflow属性不为visible（- overflow: auto/ hidden;）
 
+~~总结：pdfo~~
 ## 第十八问： BFC的使用场景有哪些呢
 
 1. 可以用来自适应布局。
@@ -441,9 +445,11 @@ clear：both：本质就是闭合浮动， 就是让父盒子闭合出口和入�
 </body>
 </html>
 ```
-![](./css面试6.png)
+![](./CSS盒模型/css面试6.png)
 如果我们清除了浮动，父元素自动检测子盒子最高的高度，然后与其同高。
+
 优点：通俗易懂，方便
+
 缺点：添加无意义标签，语义化差
 不建议使用。
 
@@ -457,8 +463,11 @@ clear：both：本质就是闭合浮动， 就是让父盒子闭合出口和入�
     overflow: hidden;
 }
 ```
+
 优点：代码简洁
+
 缺点：内容增多的时候容易造成不会自动换行导致内容被隐藏掉，无法显示要溢出的元素
+
 不推荐使用
 
 3. 使用after伪元素清除浮动（推荐使用）
@@ -484,7 +493,9 @@ clear：both：本质就是闭合浮动， 就是让父盒子闭合出口和入�
 </body>
 ```
 优点：符合闭合浮动思想，结构语义化正确
+
 缺点：ie6-7不支持伪元素：after，使用zoom:1 触发 hasLayout.
+
 推荐使用
 
 4. 使用before和after双伪元素清除浮动
@@ -508,7 +519,9 @@ clear：both：本质就是闭合浮动， 就是让父盒子闭合出口和入�
  <div class="footer"></div>
 ```
 优点：代码更简洁
+
 缺点：用zoom:1触发hasLayout.
+
 推荐使用
 
 5. 浮动父元素
@@ -530,8 +543,4 @@ img{
 这种方式也不推荐，了解即可。
 
 
-
-
-
-
-
+### 参考链接：https://juejin.cn/post/6880111680153059341

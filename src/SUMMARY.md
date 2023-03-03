@@ -11,6 +11,8 @@
   - [ESModule](./JS&TS/ESModule.md)
   - [TS体操](./JS&TS/TS体操.md)
   - [Promise实现](./JS&TS/Promise实现.md)
+  - [JS原型链](./JS&TS/JS原型链.md)
+  - [JS内存管理和GC](./JS&TS/JS内存管理和GC.md)
 
 - [打包&编译工具](./打包编译/index.md)
   - [babel插件](./打包编译/babel插件.md)

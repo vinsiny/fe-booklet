@@ -16,6 +16,8 @@ https://doc.vercel.app/webyck/article/5bdc723a6fb9a049c43d1843.html
 2. 浏览器performance 内存优化、long task 优化；
 3. 隐士类型转换
 4. 函数式编程、面向对象编程
+5. 依赖注入、依赖反转
+6. ts: type 和 interface 区别
 
 ### 收藏
 1. [一文读懂跨平台技术的前世今生](https://jelly.jd.com/article/6347f9578f43eb0062457446)

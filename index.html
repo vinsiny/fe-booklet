@@ -32,6 +32,7 @@
 
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -69,10 +70,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -80,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html" class="active"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="框架/ssr和Nextjs.html"><strong aria-hidden="true">2.3.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="JS&TS/TS体操.html"><strong aria-hidden="true">3.2.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="JS&TS/Promise实现.html"><strong aria-hidden="true">3.3.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="JS&TS/JS原型链.html"><strong aria-hidden="true">3.4.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.5.</strong> JS内存管理和GC</a></li></ol></li><li class="chapter-item expanded "><a href="打包编译/index.html"><strong aria-hidden="true">4.</strong> 打包&编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="打包编译/babel插件.html"><strong aria-hidden="true">4.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="打包编译/SplitChunks.html"><strong aria-hidden="true">4.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="网络协议/index.html"><strong aria-hidden="true">5.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="网络协议/HTTP缓存.html"><strong aria-hidden="true">5.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="网络协议/HTTPS.html"><strong aria-hidden="true">5.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">5.3.</strong> HTTP/1和HTTP/2</a></li></ol></li><li class="chapter-item expanded "><a href="算法/index.html"><strong aria-hidden="true">6.</strong> 算法&设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="算法/设计模式.html"><strong aria-hidden="true">6.1.</strong> 设计模式</a></li></ol></li><li class="chapter-item expanded "><a href="CSS世界/index.html"><strong aria-hidden="true">7.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="CSS世界/响应式页面开发.html"><strong aria-hidden="true">7.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="CSS世界/CSS面试.html"><strong aria-hidden="true">7.2.</strong> CSS面试</a></li><li class="chapter-item expanded "><a href="CSS世界/CSS盒模型.html"><strong aria-hidden="true">7.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="CSS世界/CSS垂直居中.html"><strong aria-hidden="true">7.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">7.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="something/index.html"><strong aria-hidden="true">8.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="something/ES6.html"><strong aria-hidden="true">8.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="something/Flux&Redux&Mobx.html"><strong aria-hidden="true">8.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="something/Mobx.html"><strong aria-hidden="true">8.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="something/Issue笔记链接.html"><strong aria-hidden="true">8.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="something/React.html"><strong aria-hidden="true">8.5.</strong> React</a></li><li class="chapter-item expanded "><a href="something/任务.html"><strong aria-hidden="true">8.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="something/前端安全.html"><strong aria-hidden="true">8.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="something/待深入.html"><strong aria-hidden="true">8.8.</strong> 待深入</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html" class="active"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="算法/index.html"><strong aria-hidden="true">7.</strong> 算法&设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -155,7 +158,27 @@
 <p>使用下面命令，用于通过 HTTP 在 localhost:3000 提供本地预览服务：</p>
 <pre><code class="language-bash">mdbook serve
 </code></pre>
-<p>https://doc.vercel.app/webyck/article/5bdc723a6fb9a049c43d1843.html</p>
+<!-- https://doc.vercel.app/webyck/article/5bdc723a6fb9a049c43d1843.html -->
+<h3 id="todo"><a class="header" href="#todo">TODO</a></h3>
+<ol>
+<li>浏览器同源策略的起因、限制、解决方案</li>
+<li><del>浏览器performance 内存优化、long task 优化；</del></li>
+<li>隐士类型转换</li>
+<li>函数式编程、面向对象编程</li>
+<li>依赖注入、依赖反转</li>
+<li><del>ts: type 和 interface 区别</del></li>
+<li>lazy 加载实现原理</li>
+<li>useState/useReducer 状态保存原理</li>
+<li><del>https 安全保证，ca 公钥</del></li>
+<li>errorboundry 捕获哪些错误？</li>
+<li><del>css 选择器和优先级</del></li>
+<li><del>vue2 双向绑定</del></li>
+<li>csp </li>
+<li>new Objet() 和 Object.create()</li>
+<li>monorepo 概念</li>
+<li>关于项目的深入理解</li>
+<li>webpack plugin/loader 实现？看一到两个pluin源码</li>
+</ol>
 <h3 id="收藏"><a class="header" href="#收藏">收藏</a></h3>
 <ol>
 <li><a href="https://jelly.jd.com/article/6347f9578f43eb0062457446">一文读懂跨平台技术的前世今生</a></li>
@@ -163,10 +186,14 @@
 <li><a href="https://jelly.jd.com/article/631049513c3bd1006a1fd2b5">一起来做类型体操</a></li>
 <li><a href="https://jelly.jd.com/article/61ee061eb2546401b7c04411">如何参与大型开源项目-Taro 共建</a></li>
 <li><a href="http://zoo.zhengcaiyun.cn/">zoo team</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27093191">Redux状态管理之痛点、分析与改良</a></li>
+<li><a href="https://mp.weixin.qq.com/s/5Ir7EoHLo37bs6W5WNa-Tw">我看Next.js：一个更现代的海王</a></li>
+<li><a href="https://www.nodejs.red/#/?id=nodejs%e6%8a%80%e6%9c%af%e6%a0%88">Nodejs技术栈</a></li>
+<li><a href="https://github.com/jtwang7/JavaScript-Note/issues/2">github/JavaScript-Note</a></li>
 </ol>
 <h3 id="gh-pages-发布-github-acitons-配置"><a class="header" href="#gh-pages-发布-github-acitons-配置">gh-pages 发布 github acitons 配置</a></h3>
 <ul>
-<li>自动发布 gh-pages aciton 配置： https://github.com/rust-lang/mdBook/wiki/Automated-Deployment:-GitHub-Actions</li>
+<li>自动发布 gh-pages aciton 配置： <a href="https://github.com/rust-lang/mdBook/wiki/Automated-Deployment:-GitHub-Actions">https://github.com/rust-lang/mdBook/wiki/Automated-Deployment:-GitHub-Actions</a></li>
 </ul>
 
                     </main>
@@ -227,5 +254,6 @@
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>

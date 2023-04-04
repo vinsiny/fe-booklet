@@ -1,0 +1,865 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Issue笔记链接 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html" class="active"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/something/Issue笔记链接.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- ---
+tags: [11月的]
+title: Issue 笔记 链接
+created: '2019-11-07T02:12:52.146Z'
+modified: '2019-11-18T06:44:00.535Z'
+--- -->
+<h1 id="issue-笔记-链接"><a class="header" href="#issue-笔记-链接">Issue 笔记 <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues?page=4&amp;q=is%3Aissue+is%3Aopen">链接</a></a></h1>
+<h3 id="1-写-react--vue-项目时为什么要在列表组件中写-key其作用是什么"><a class="header" href="#1-写-react--vue-项目时为什么要在列表组件中写-key其作用是什么">1. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/1">写 React / Vue 项目时为什么要在列表组件中写 key，其作用是什么?</a></a></h3>
+<p><strong>key是给每一个vnode的唯一id,可以依靠key,更准确, 更快的拿到oldVnode中对应的vnode节点。</strong></p>
+<ol>
+<li>
+<p>更准确
+因为带key就不是就地复用了，在sameNode函数 a.key === b.key对比中可以避免就地复用的情况。所以会更加准确。</p>
+</li>
+<li>
+<p>更快
+利用key的唯一性生成map对象来获取对应节点，比遍历方式更快。(这个观点，就是我最初的那个观点。从这个角度看，map会比遍历更快。)</p>
+</li>
+</ol>
+<h3 id="2-第-4-题介绍下-setmapweakset-和-weakmap-的区别"><a class="header" href="#2-第-4-题介绍下-setmapweakset-和-weakmap-的区别">2. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/6">第 4 题：介绍下 Set、Map、WeakSet 和 WeakMap 的区别？</a></a></h3>
+<ul>
+<li>
+<p>Set     成员不能重复，           可以遍历</p>
+</li>
+<li>
+<p>WeakSet 成员不能重复，且只能是对象 不能遍历</p>
+</li>
+<li>
+<p>Map     键值可以为任意类型           可以遍历</p>
+</li>
+<li>
+<p>WeakMap 键值只能是对象              不能遍历</p>
+</li>
+</ul>
+<h3 id="3-常见异步笔试题"><a class="header" href="#3-常见异步笔试题">3. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7">常见异步笔试题</a></a></h3>
+<p><strong>执行了流程： (macro)task-&gt;渲染-&gt;(macro)task-&gt;…</strong></p>
+<p>3.1 宏任务 macro task
+主要包含：script(整体代码)、setTimeout、setInterval、I/O、UI交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)；</p>
+<p>3.2 微任务 micro task
+主要包含：Promise.then、MutaionObserver、process.nextTick(Node.js 环境)</p>
+<h3 id="4简单讲解一下-http2-的多路复用"><a class="header" href="#4简单讲解一下-http2-的多路复用">4.<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/14">简单讲解一下 http2 的多路复用 </a></a></h3>
+<p>HTTP/1 的问题：</p>
+<ul>
+<li>每次请求都会建立一次HTTP连接，也就是我们常说的3次握手4次挥手，这个过程在一次请求过程中占用了相当长的时间；</li>
+<li>队头阻塞问题，即使开启了 Keep-Alive，串行的文件传输，后面的请求只能等前一个返回后，才能发出。</li>
+<li>服务器连接数过多。</li>
+</ul>
+<p>HTTP/2 多路复用解决上述的两个性能问题：</p>
+<ul>
+<li>在 HTTP/2 中，有两个非常重要的概念，分别是帧（frame）和流（stream）。</li>
+<li>帧代表着最小的数据单位，每个帧会标识出该帧属于哪个流，流也就是多个帧组成的数据流。</li>
+<li>多路复用，就是在一个 TCP 连接中可以存在多条流。换句话说，也就是可以发送多个请求，对端可以通过帧中的标识知道属于哪个请求。通过这个技术，可以避免 HTTP 旧版本中的队头阻塞问题，极大的提高传输性能。</li>
+</ul>
+<h3 id="5-react-中-setstate-什么时候是同步的什么时候是异步的"><a class="header" href="#5-react-中-setstate-什么时候是同步的什么时候是异步的">5. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/17">React 中 setState 什么时候是同步的，什么时候是异步的？</a></a></h3>
+<p>如果是由React引发的事件处理（比如通过onClick引发的事件处理， 生命周期函数），调用setState不会同步更新this.state；
+除此之外的setState调用会同步执行this.state。所谓“除此之外”，指的是绕过React通过addEventListener直接添加的事件处理函数，还有通过setTimeout/setInterval产生的异步调用。</p>
+<h3 id="6-介绍下重绘和回流repaint--reflow以及如何进行优化"><a class="header" href="#6-介绍下重绘和回流repaint--reflow以及如何进行优化">6. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/24">介绍下重绘和回流（Repaint &amp; Reflow），以及如何进行优化 </a></a></h3>
+<ol>
+<li>浏览器渲染机制</li>
+</ol>
+<ul>
+<li>浏览器采用流式布局模型（Flow Based Layout）</li>
+<li>浏览器会把HTML解析成DOM，把CSS解析成CSSOM，DOM和CSSOM合并就产生了渲染树（Render Tree）。</li>
+<li>有了RenderTree，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上。</li>
+<li>由于浏览器使用流式布局，对Render Tree的计算通常只需要遍历一次就可以完成，但table及其内部元素除外，他们可能需要多次计算，通常要花3倍于同等元素的时间，这也是为什么要避免使用table布局的原因之一。</li>
+</ul>
+<ol start="2">
+<li>
+<p>重绘
+由于节点的几何属性发生改变或者由于样式发生改变而不会影响布局的，称为重绘；</p>
+</li>
+<li>
+<p>回流
+回流是布局或者几何属性需要改变就称为回流；
+<strong>大部分的回流将导致页面的重新渲染。</strong>
+<strong>回流必定会发生重绘，重绘不一定会引发回流。</strong></p>
+</li>
+<li>
+<p>减少回流和重绘</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>CSS：</p>
+<ul>
+<li>使用 transform 替代 top;</li>
+<li>使用 visibility 替换 display: none ，因为前者只会引起重绘，后者会引发回流（改变了布局);</li>
+<li>避免使用table布局，可能很小的一个小改动会造成整个 table 的重新布局;</li>
+<li>尽可能在DOM树的最末端改变class;</li>
+<li>避免设置多层内联样式，CSS 选择符从右往左匹配查找，避免节点层级过多;</li>
+<li>将动画效果应用到position属性为absolute或fixed的元素上，避免影响其他元素的布局，这样只是一个重绘，而不是回流；</li>
+<li>同时，控制动画速度可以选择 requestAnimationFrame；</li>
+<li>避免使用CSS表达式；</li>
+<li>将频繁重绘或者回流的节点设置为图层，图层能够阻止该节点的渲染行为影响别的节点，例如will-change、video、iframe等标签，浏览器会自动将该节点变为图层；</li>
+<li>CSS3 硬件加速（GPU加速），使用css3硬件加速，可以让transform、opacity、filters这些动画不会引起回流重绘；</li>
+</ul>
+</li>
+<li>
+<p>JavaScript：</p>
+<ul>
+<li>避免频繁操作样式，最好一次性重写style属性，或者将样式列表定义为class并一次性更改class属性。</li>
+<li>避免频繁操作DOM，创建一个documentFragment，在它上面应用所有DOM操作，最后再把它添加到文档中。</li>
+<li>避免频繁读取会引发回流/重绘的属性，如果确实需要多次使用，就用一个变量缓存起来。</li>
+<li>对具有复杂动画的元素使用绝对定位，使它脱离文档流，否则会引起父元素及后续元素频繁回流。</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-介绍下-bfc-及其应用"><a class="header" href="#7-介绍下-bfc-及其应用">7. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/59">介绍下 BFC 及其应用</a></a></h3>
+<ul>
+<li>
+<p>BFC 就是块级格式上下文（Block Formatting Context，BFC），是页面盒模型布局中的一种 CSS 渲染模式，相当于一个独立的容器，里面的元素和外部的元素相互不影响。创建 BFC 的方式有：</p>
+<ul>
+<li>html 根元素；</li>
+<li>float 浮动；</li>
+<li>绝对定位(position为absolute或者fixed)；</li>
+<li>overflow 不为 visiable；</li>
+<li>display 为表格布局或者弹性布局；</li>
+</ul>
+</li>
+<li>
+<p>BFC 主要的作用是：</p>
+<ul>
+<li>清除浮动；</li>
+<li>防止同一 BFC 容器中的相邻元素间的外边距重叠问题；</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-怎么让一个-div-水平垂直居中"><a class="header" href="#8-怎么让一个-div-水平垂直居中">8. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/92">怎么让一个 div 水平垂直居中</a></a></h3>
+<pre><code class="language-html">&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ol>
+<li>flex 弹性布局</li>
+</ol>
+<pre><code class="language-css">div.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</code></pre>
+<ol start="2">
+<li>绝对定位 + margin 或者 transform 偏移</li>
+</ol>
+<pre><code class="language-css">div.parent {
+    position: relative; 
+}
+div.child {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+}
+/* 或者 */
+div.child {
+    width: 50px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -5px;
+}
+/* 或 */
+div.child {
+    width: 50px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+</code></pre>
+<ol start="3">
+<li>grid 布局</li>
+</ol>
+<pre><code class="language-css">div.parent {
+    display: grid;
+}
+div.child {
+    justify-self: center;
+    align-self: center;
+}
+</code></pre>
+<ol start="4">
+<li>行高</li>
+</ol>
+<pre><code class="language-css">div.parent {
+    font-size: 0;
+    text-align: center;
+    &amp;::before {
+        content: &quot;&quot;;
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+div.child{
+  display: inline-block;
+  vertical-align: middle;
+}
+</code></pre>
+<h3 id="9箭头函数与普通函数function的区别是什么构造函数function可以使用-new-生成实例那么箭头函数可以吗为什么"><a class="header" href="#9箭头函数与普通函数function的区别是什么构造函数function可以使用-new-生成实例那么箭头函数可以吗为什么">9.<a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/101">箭头函数与普通函数（function）的区别是什么？构造函数（function）可以使用 new 生成实例，那么箭头函数可以吗？为什么？</a></a></h3>
+<p>箭头函数是普通函数的简写，可以更优雅的定义一个函数，和普通函数相比，有以下几点差异：</p>
+<ul>
+<li>1、函数体内的 this 对象，就是定义时所在的对象，而不是使用时所在的对象。</li>
+<li>2、不可以使用 arguments 对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</li>
+<li>3、不可以使用 yield 命令，因此箭头函数不能用作 Generator 函数。</li>
+<li>4、不可以使用 new 命令，因为：
+<ul>
+<li>没有自己的 this，无法调用 call，apply。</li>
+<li>没有 prototype 属性 ，而 new 命令在执行时需要将构造函数的 prototype 赋值给新的对象的 <strong>__proto__</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="10--介绍下-webpack-热更新原理是如何做到在不刷新浏览器的前提下更新页面"><a class="header" href="#10--介绍下-webpack-热更新原理是如何做到在不刷新浏览器的前提下更新页面">10. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/118"> 介绍下 webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面</a></a></h3>
+<ol>
+<li>当修改了一个或多个文件；</li>
+<li>文件系统接收更改并通知webpack；</li>
+<li>webpack重新编译构建一个或多个模块，并通知 HMR Server 进行更新；</li>
+<li>HMR Server 使用webSocket通知 HMR runtime 需要更新，HMR runtime 通过HTTP请求更新jsonp；</li>
+<li>HMR运行时替换更新中的模块，如果确定这些模块无法更新，则触发整个页面刷新。</li>
+</ol>
+<p><a href="https://zhuanlan.zhihu.com/p/30669007">Webpack HMR 原理解析</a></p>
+<ol>
+<li>文件更改后，webpack对模块重新编译打包，并将打包后的代码保存到内存中；</li>
+<li>WDS 对文件变化监控，（这里监控的不是监控文件变化后打包，而是监控静态文件变化，通知浏览器 live reload）；</li>
+<li>通过 sockjs 建立的 websocket 长链接，将 webpack 编译状态和模块变化的hash值传递给浏览器，浏览器根据hash变化进行模块热替换；</li>
+<li>HotModuleReplacement.runtime 是客户端 HMR 的中枢，将接收到的新模块的hash值，通过 JsonpMainTemplate.runtime 向 server 端发送 Ajax 请求，服务端返回一个 json，该 json 包含了所有要更新的模块的 hash 值，获取到更新列表后，该模块再次通过 jsonp 请求，获取到最新的模块代码。</li>
+<li>HotModulePlugin 将会对新旧模块进行对比，决定是否更新模块，在决定更新模块后，检查模块之间的依赖关系，更新模块的同时更新模块间的依赖引用。</li>
+</ol>
+<h3 id="11-介绍下-bfcifcgfc-和-ffc"><a class="header" href="#11-介绍下-bfcifcgfc-和-ffc">11. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/122">介绍下 BFC、IFC、GFC 和 FFC</a></a></h3>
+<ul>
+<li>
+<p>BFC（Block formatting contexts）：块级格式上下文
+页面上的一个隔离的渲染区域，那么他是如何产生的呢？可以触发BFC的元素有float、position、overflow、display：table-cell/ inline-block/table-caption ；BFC有什么作用呢？比如说实现多栏布局’</p>
+</li>
+<li>
+<p>IFC（Inline formatting contexts）：内联格式上下文
+IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响)IFC中的line box一般左右都贴紧整个IFC，但是会因为float元素而扰乱。float元素会位于IFC与与line box之间，使得line box宽度缩短。 同个ifc下的多个line box高度会不同
+IFC中时不可能有块级元素的，当插入块级元素时（如p中插入div）会产生两个匿名块与div分隔开，即产生两个IFC，每个IFC对外表现为块级元素，与div垂直排列。
+那么IFC一般有什么用呢？
+水平居中：当一个块要在环境中水平居中时，设置其为inline-block则会在外层产生IFC，通过text-align则可以使其水平居中。
+垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。</p>
+</li>
+<li>
+<p>GFC（GrideLayout formatting contexts）：网格布局格式化上下文
+当为一个元素设置display值为grid的时候，此元素将会获得一个独立的渲染区域，我们可以通过在网格容器（grid container）上定义网格定义行（grid definition rows）和网格定义列（grid definition columns）属性各在网格项目（grid item）上定义网格行（grid row）和网格列（grid columns）为每一个网格项目（grid item）定义位置和空间。那么GFC有什么用呢，和table又有什么区别呢？首先同样是一个二维的表格，但GridLayout会有更加丰富的属性来控制行列，控制对齐以及更为精细的渲染语义和控制。</p>
+</li>
+<li>
+<p>FFC（Flex formatting contexts）:自适应格式上下文
+display值为flex或者inline-flex的元素将会生成自适应容器（flex container），可惜这个牛逼的属性只有谷歌和火狐支持，不过在移动端也足够了，至少safari和chrome还是OK的，毕竟这俩在移动端才是王道。Flex Box 由伸缩容器和伸缩项目组成。通过设置元素的 display 属性为 flex 或 inline-flex 可以得到一个伸缩容器。设置为 flex 的容器被渲染为一个块级元素，而设置为 inline-flex 的容器则渲染为一个行内元素。伸缩容器中的每一个子元素都是一个伸缩项目。伸缩项目可以是任意数量的。伸缩容器外和伸缩项目内的一切元素都不受影响。简单地说，Flexbox 定义了伸缩容器内伸缩项目该如何布局。</p>
+</li>
+</ul>
+<h3 id="12-使用-javascript-proxy-实现简单的数据绑定"><a class="header" href="#12-使用-javascript-proxy-实现简单的数据绑定">12. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/123">使用 JavaScript Proxy 实现简单的数据绑定</a></a></h3>
+<pre><code class="language-html">&lt;body&gt;
+  hello,world
+  &lt;input type=&quot;text&quot; id=&quot;model&quot;&gt;
+  &lt;p id=&quot;word&quot;&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;script&gt;
+  const model = document.getElementById(&quot;model&quot;)
+  const word = document.getElementById(&quot;word&quot;)
+  var obj= {};
+
+  const newObj = new Proxy(obj, {
+      get: function(target, key, receiver) {
+        console.log(`getting ${key}!`);
+        return Reflect.get(target, key, receiver);
+      },
+      set: function(target, key, value, receiver) {
+        console.log('setting',target, key, value, receiver);
+        if (key === &quot;text&quot;) {
+          model.value = value;
+          word.innerHTML = value;
+        }
+        return Reflect.set(target, key, value, receiver);
+      }
+    });
+
+  model.addEventListener(&quot;keyup&quot;,function(e){
+    newObj.text = e.target.value
+  })
+&lt;/script&gt;
+</code></pre>
+<h3 id="13-永久性重定向301和临时性重定向302对-seo-有什么影响"><a class="header" href="#13-永久性重定向301和临时性重定向302对-seo-有什么影响">13. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/241">永久性重定向（301）和临时性重定向（302）对 SEO 有什么影响</a></a></h3>
+<p>301重定向可促进搜索引擎优化效果
+从搜索引擎优化角度出发，301重定向是网址重定向最为可行的一种办法。当网站的域名发生变更后，搜索引擎只对新网址进行索引，同时又会把旧地址下原有的外部链接如数转移到新地址下，从而不会让网站的排名因为网址变更而收到丝毫影响。同样，在使用301永久性重定向命令让多个域名指向网站主域时，亦不会对网站的排名产生任何负面影响。</p>
+<p>302重定向可影响搜索引擎优化效果
+迄今为止，能够对302重定向具备优异处理能力的只有Google。也就是说，在网站使用302重定向命令将其它域名指向主域时，只有Google会把其它域名的链接成绩计入主域，而其它搜索引擎只会把链接成绩向多个域名分摊，从而削弱主站的链接总量。既然作为网站排名关键因素之一的外链数量受到了影响，网站排名降低也是很自然的事情了。</p>
+<p>理解301（永久重定向）是旧地址的资源已经被永久地删除了，搜索引擎在抓取新内容的同时也将旧的网站替换为重定向后的地址</p>
+<p>302（临时重定向）旧地址的资源还在，这个重定向的只是临时从旧地址跳转到新地址，搜索引擎会抓取新的内容而保存旧的地址</p>
+<h3 id="14-从url输入到页面展现到底发生什么"><a class="header" href="#14-从url输入到页面展现到底发生什么">14. <a href="https://juejin.im/post/5c7646f26fb9a049fd108380">从URL输入到页面展现到底发生什么？</a></a></h3>
+<ol>
+<li>DNS 解析:将域名解析成 IP 地址：</li>
+</ol>
+<ul>
+<li>DNS缓存 DNS存在着多级缓存，从离浏览器的距离排序的话，有以下几种: 浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存。</li>
+<li>DNS负载均衡(DNS重定向) DNS负载均衡技术的实现原理是在DNS服务器中为同一个主机名配置多个IP地址，在应答DNS查询时， DNS服务器对每个查询将以DNS文件中主机记录的IP地址按顺序返回不同的解析结果，将客户端的访问 引导到不同的机器上去，使得不同的客户端访问不同的服务器，从而达到负载均衡的目的。</li>
+</ul>
+<ol start="2">
+<li>TCP 连接：TCP 三次握手</li>
+<li>发送 HTTP 请求</li>
+<li>服务器处理请求并返回 HTTP 报文</li>
+<li>浏览器解析渲染页面</li>
+<li>断开连接：TCP 四次挥手</li>
+</ol>
+<h3 id="15你要的-react-面试知识点都在这了"><a class="header" href="#15你要的-react-面试知识点都在这了">15.<a href="https://juejin.im/post/5cf0733de51d4510803ce34e">你要的 React 面试知识点，都在这了</a></a></h3>
+<h3 id="16-跨域"><a class="header" href="#16-跨域">16. <a href="">跨域</a></a></h3>
+<p>整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。</p>
+<p>因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。</p>
+<ol>
+<li>简单请求</li>
+</ol>
+<p>(1) 请求方法是以下三种方法之一：</p>
+<ul>
+<li>HEAD</li>
+<li>GET</li>
+<li>POST</li>
+</ul>
+<p>(2)HTTP的头信息不超出以下几种字段：</p>
+<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Type： 只限于三个值 application/x-www-form-urlencoded、multipart/form-data、text/plain</li>
+<li>Content-Language</li>
+<li>Last-Event-ID</li>
+</ul>
+<p>服务端返回请求需有以下头部：
+（1）Access-Control-Allow-Origin： 必须；
+（2）Access-Control-Allow-Credentials： 该字段可选。它的值是一个布尔值，表示是否允许发送Cookie；
+（3）Access-Control-Expose-Headers： 该字段可选；</p>
+<ol start="2">
+<li>非简单请求</li>
+</ol>
+<p>非简单请求是那种对服务器有特殊要求的请求，比如请求方法是PUT或DELETE，或者Content-Type字段的类型是application/json。</p>
+<p>非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为“预检“请求（preflight）。</p>
+<p>浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的XMLHttpRequest请求，否则就报错。</p>
+<p>JSONP：最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小；
+它的基本思想是，网页通过添加一个 &lt;\script&gt; 元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。</p>
+<pre><code class="language-javascript">function addScriptTag(src) {
+  var script = document.createElement('script');
+  script.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);
+  script.src = src;
+  document.body.appendChild(script);
+}
+
+window.onload = function () {
+  addScriptTag('http://example.com/ip?callback=foo');
+}
+
+function foo(data) {
+  console.log('Your public IP address is: ' + data.ip);
+};
+</code></pre>
+<h3 id="17-css-选择器优先级"><a class="header" href="#17-css-选择器优先级">17. css 选择器优先级</a></h3>
+<p>从高到低：
+1.id选择器（#myid）</p>
+<p>2.类选择器（.myclassname）</p>
+<p>3.标签选择器（div,h1,p）</p>
+<p>4.子选择器（ul &lt; li）</p>
+<p>5.后代选择器（li a）</p>
+<p>6.伪类选择（a:hover,li:nth-child）</p>
+<h3 id="18-http-状态码"><a class="header" href="#18-http-状态码">18. http 状态码</a></h3>
+<p>301： 永久移动；
+302： 临时移动；
+303: 查看其它地址。与301类似。使用GET和POST请求查看；
+304：未修改；
+305： 使用代理；
+307： 临时重定向。与302类似。使用GET请求重定向；
+400： 客户端请求的语法错误，服务器无法理解；
+401： 请求要求用户的身份认证；
+403： 服务器理解请求客户端的请求，但是拒绝执行此请求；
+404： 服务器无法根据客户端的请求找到资源（网页）；
+405： 客户端请求中的方法被禁止；
+406： 服务器无法根据客户端请求的内容特性完成请求；
+407： 请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权；
+…
+500：服务器内部错误，无法完成请求；
+501： 服务器不支持请求的功能，无法完成请求；
+502： 作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应；
+504： 充当网关或代理的服务器，未及时从远端服务器获取请求；</p>
+<h3 id="19-webpack-打包优化"><a class="header" href="#19-webpack-打包优化">19. webpack 打包优化</a></h3>
+<ol>
+<li>babel-loader 缓存；</li>
+<li>抽离，一是webpack-dll-plugin，在首次构建时候就将这些静态依赖单独打包，后续只需要引用这个早就被打好的静态依赖包即可，有点类似“预编译”的概念；或者采用 Externals 的方式，我们将这些不需要打包的静态资源从构建逻辑中剔除出去，而使用 CDN 的方式，去引用它们；</li>
+<li>在生产环境，避免使用 压缩，混淆等开发模式下不需要的功能；</li>
+<li>选用合适的 devtool 配置（此选项控制是否生成，以及如何生成 source map），“eval” 具有最好的性能，但并不能帮助你转译代码。在大多数情况下，cheap-module-eval-source-map 是最好的选择；</li>
+</ol>
+<h3 id="20-webpack-的-loader-和-plugin-工作原理"><a class="header" href="#20-webpack-的-loader-和-plugin-工作原理">20. webpack 的 loader 和 plugin 工作原理</a></h3>
+<ol>
+<li>loader 
+loader 用于对模块的源代码进行转换。loader 可以使你在 import 或“加载“模块时预处理文件。因此，loader 类似于其他构建工具中“任务(task)”，并提供了处理前端构建步骤的强大方法。loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。loader 甚至允许你直接在 JavaScript 模块中 import CSS文件！</li>
+</ol>
+<ul>
+<li>编写 loader:
+<ul>
+<li>loader 是导出为一个函数的 node 模块。该函数在 loader 转换资源的时候调用。给定的函数将调用 loader API，并通过 this 上下文访问；</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>plugin</li>
+</ol>
+<p>插件是 webpack 的支柱功能。webpack 自身也是构建于，你在 webpack 配置中用到的相同的插件系统之上！插件目的在于解决 loader 无法实现的其他事。</p>
+<ul>
+<li>webpack 插件由以下组成：
+<ul>
+<li>一个 JavaScript 命名函数。</li>
+<li>在插件函数的 prototype 上定义一个 apply 方法。</li>
+<li>指定一个绑定到 webpack 自身的事件钩子。</li>
+<li>处理 webpack 内部实例的特定数据。</li>
+<li>功能完成后调用 webpack 提供的回调。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-javascript">// 一个 JavaScript 命名函数。
+function MyExampleWebpackPlugin() {
+
+};
+
+// 在插件函数的 prototype 上定义一个 `apply` 方法。
+MyExampleWebpackPlugin.prototype.apply = function(compiler) {
+  // 指定一个挂载到 webpack 自身的事件钩子。
+  compiler.plugin('webpacksEventHook', function(compilation /* 处理 webpack 内部实例的特定数据。*/, callback) {
+    console.log(&quot;This is an example plugin!!!&quot;);
+
+    // 功能完成后调用 webpack 提供的回调。
+    callback();
+  });
+</code></pre>
+<ul>
+<li>compiler 对象代表了完整的 webpack 环境配置。这个对象在启动 webpack 时被一次性建立，并配置好所有可操作的设置，包括 options，loader 和 plugin。当在 webpack 环境中应用一个插件时，插件将收到此 compiler 对象的引用。可以使用它来访问 webpack 的主环境。</li>
+<li>compilation 对象代表了一次资源版本构建。当运行 webpack 开发环境中间件时，每当检测到一个文件变化，就会创建一个新的 compilation，从而生成一组新的编译资源。一个 compilation 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。compilation 对象也提供了很多关键时机的回调，以供插件做自定义处理时选择使用。</li>
+</ul>
+<h3 id="20-把-list-专化成树形结构"><a class="header" href="#20-把-list-专化成树形结构">20. 把 list 专化成树形结构</a></h3>
+<pre><code class="language-javascript">const fn = arr =&gt; {
+  const res = [];
+  const map = arr.reduce((res, item) =&gt; ((res[item.id] = item), res), {});
+  for (const item of Object.values(map)) {
+    if (!item.pId) {
+      res.push(item);
+    } else {
+      const parent = map[item.pId];
+      parent.child = parent.child || [];
+      parent.child.push(item);
+    }
+  }
+  return res;
+};
+
+const arr = [
+  { id: 1 },
+  { id: 2, pId: 1 },
+  { id: 3, pId: 2 },
+  { id: 4 },
+  { id: 3, pId: 2 },
+  { id: 5, pId: 4 }
+];
+fn(arr);
+</code></pre>
+<h3 id="21-javascript深入之4类常见内存泄漏及如何避免"><a class="header" href="#21-javascript深入之4类常见内存泄漏及如何避免">21. <a href="https://github.com/yygmind/blog/issues/16">JavaScript深入之4类常见内存泄漏及如何避免</a></a></h3>
+<ol>
+<li>垃圾回收算法</li>
+</ol>
+<p>常用垃圾回收算法叫做<strong>标记清除 （Mark-and-sweep）</strong>，算法由以下几步组成：</p>
+<p>1、垃圾回收器创建了一个“roots”列表。roots 通常是代码中全局变量的引用。JavaScript 中，“window” 对象是一个全局变量，被当作 root 。window 对象总是存在，因此垃圾回收器可以检查它和它的所有子对象是否存在（即不是垃圾）；</p>
+<p>2、所有的 roots 被检查和标记为激活（即不是垃圾）。所有的子对象也被递归地检查。从 root 开始的所有对象如果是可达的，它就不被当作垃圾。</p>
+<p>3、所有未被标记的内存会被当做垃圾，收集器现在可以释放内存，归还给操作系统了。</p>
+<ol start="2">
+<li><strong>四种常见的JS内存泄漏</strong></li>
+</ol>
+<ul>
+<li>1、意外的全局变量</li>
+</ul>
+<pre><code class="language-javascript">// 情况1: 未定义的变量会在全局对象创建一个新变量，如下
+function foo(arg) {
+    bar = &quot;this is a hidden global variable&quot;;
+}
+// 效果同下：
+function foo(arg) {
+    window.bar = &quot;this is an explicit global variable&quot;;
+}
+// 情况2: this 指向了全局对象（window）
+function foo() {
+    this.variable = &quot;potential accidental global&quot;;
+}
+</code></pre>
+<p><strong>解决方法：</strong> 在 JavaScript 文件头部加上 ‘use strict’，使用严格模式避免意外的全局变量，此时上例中的this指向undefined。如果必须使用全局变量存储大量数据时，确保用完以后把它设置为 null 或者重新定义。</p>
+<ul>
+<li>
+<p>2、被遗忘的计时器或回调函数</p>
+</li>
+<li>
+<p>3、脱离 DOM 的引用</p>
+</li>
+</ul>
+<p>如果把DOM 存成字典（JSON 键值对）或者数组，此时，同样的 DOM 元素存在两个引用：一个在 DOM 树中，另一个在字典中。那么将来需要把两个引用都清除。</p>
+<p>如果代码中保存了表格某一个 <td> 的引用。将来决定删除整个表格的时候，直觉认为 GC 会回收除了已保存的 <td> 以外的其它节点。实际情况并非如此：此 <td> 是表格的子节点，子元素与父元素是引用关系。由于代码保留了 <td> 的引用，导致整个表格仍待在内存中。所以保存 DOM 元素引用的时候，要小心谨慎。</p>
+<ul>
+<li>4、闭包</li>
+</ul>
+<h3 id="22-javascript常用八种继承方案"><a class="header" href="#22-javascript常用八种继承方案">22. <a href="https://github.com/yygmind/blog/issues/7">JavaScript常用八种继承方案</a></a></h3>
+<ol>
+<li>原型链继承
+构造函数、原型和实例之间的关系：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个原型对象的指针。
+继承的本质就是<strong>复制，即重写原型对象，代之以一个新类型的实例</strong>。
+原型链方案存在的缺点：多个实例对引用类型的操作会被篡改。</li>
+</ol>
+<pre><code class="language-javascript">function Parent() {
+    this.property = true;
+}
+
+Parent.prototype.getParentValue = function() {
+    return this.property;
+}
+
+function Child() {
+    this.subproperty = false;
+}
+
+// 这里是关键，创建SuperType的实例，并将该实例赋值给SubType.prototype
+Child.prototype = new Parent(); 
+
+Child.prototype.getChildValue = function() {
+    return this.subproperty;
+}
+
+var instance = new Child();
+console.log(instance.getParentValue()); // true
+</code></pre>
+<ol start="2">
+<li>借用构造函数继承
+使用父类的构造函数来增强子类实例，等同于复制父类的实例给子类（不使用原型）</li>
+</ol>
+<pre><code class="language-javascript">function  SuperType(){
+    this.color=[&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;];
+}
+function  SubType(){
+    //继承自SuperType
+    SuperType.call(this);
+}
+var instance1 = new SubType();
+instance1.color.push(&quot;black&quot;);
+alert(instance1.color);//&quot;red,green,blue,black&quot;
+
+var instance2 = new SubType();
+alert(instance2.color);//&quot;red,green,blue&quot;
+</code></pre>
+<p>核心代码是SuperType.call(this)，创建子类实例时调用SuperType构造函数，于是SubType的每个实例都会将SuperType中的属性复制一份。
+缺点：</p>
+<ul>
+<li>只能继承父类的实例属性和方法，不能继承原型属性/方法</li>
+<li>无法实现复用，每个子类都有父类实例函数的副本，影响性能</li>
+</ul>
+<ol start="3">
+<li>组合继承
+组合上述两种方法就是组合继承。用原型链实现对原型属性和方法的继承，用借用构造函数技术来实现实例属性的继承。</li>
+</ol>
+<pre><code class="language-javascript">function SuperType(name){
+  this.name = name;
+  this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+SuperType.prototype.sayName = function(){
+  alert(this.name);
+};
+
+function SubType(name, age){
+  // 继承属性
+  // 第二次调用SuperType()
+  SuperType.call(this, name);
+  this.age = age;
+}
+
+// 继承方法
+// 构建原型链
+// 第一次调用SuperType()
+SubType.prototype = new SuperType(); 
+// 重写SubType.prototype的constructor属性，指向自己的构造函数SubType
+SubType.prototype.constructor = SubType; 
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+
+var instance1 = new SubType(&quot;Nicholas&quot;, 29);
+instance1.colors.push(&quot;black&quot;);
+alert(instance1.colors); //&quot;red,blue,green,black&quot;
+instance1.sayName(); //&quot;Nicholas&quot;;
+instance1.sayAge(); //29
+
+var instance2 = new SubType(&quot;Greg&quot;, 27);
+alert(instance2.colors); //&quot;red,blue,green&quot;
+instance2.sayName(); //&quot;Greg&quot;;
+instance2.sayAge(); //27
+</code></pre>
+<p>缺点：</p>
+<ul>
+<li>第一次调用SuperType()：给SubType.prototype写入两个属性name，color。</li>
+<li>第二次调用SuperType()：给instance1写入两个属性name，color。</li>
+</ul>
+<ol start="4">
+<li>原型式继承
+利用一个空对象作为中介，将某个对象直接赋值给空对象构造函数的原型。</li>
+</ol>
+<pre><code class="language-javascript">function object(obj){
+  function F(){}
+  F.prototype = obj;
+  return new F();
+}
+</code></pre>
+<p>object()对传入其中的对象执行了一次浅复制，将构造函数F的原型直接指向传入的对象。</p>
+<pre><code class="language-javascript">var person = {
+  name: &quot;Nicholas&quot;,
+  friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]
+};
+
+var anotherPerson = object(person);
+anotherPerson.name = &quot;Greg&quot;;
+anotherPerson.friends.push(&quot;Rob&quot;);
+
+var yetAnotherPerson = object(person);
+yetAnotherPerson.name = &quot;Linda&quot;;
+yetAnotherPerson.friends.push(&quot;Barbie&quot;);
+
+alert(person.friends);   //&quot;Shelby,Court,Van,Rob,Barbie&quot;
+</code></pre>
+<p>缺点：</p>
+<ul>
+<li>原型链继承多个实例的引用类型属性指向相同，存在篡改的可能。</li>
+<li>无法传递参数；
+另外，ES5中存在Object.create()的方法，能够代替上面的object方法。</li>
+</ul>
+<h3 id="23-给定两个数组写一个方法来计算它们的交集"><a class="header" href="#23-给定两个数组写一个方法来计算它们的交集">23. <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/102">给定两个数组，写一个方法来计算它们的交集</a></a></h3>
+<pre><code class="language-javascript">function intersection(x, y) {
+  var m = x.length;
+  var n = y.length;
+  // c 是 (m + 1) * (n + 1) 的二维数组
+  var c = [];
+  for (var i = 0; i &lt;= m; i++) {
+    c[i] = [0];
+  }
+  for (var j = 0; j &lt;= n; j++) {
+    c[0][j] = 0;
+  }
+  
+  // 利用动态规划，自底向上求解
+  for(var i = 1; i &lt;= m; i++) {
+    for(var j = 1; j &lt;= n; j++) {
+      if (x[i-1] == y[j-1]) {
+        c[i][j] = c[i-1][j-1] + 1;
+      } else if (c[i - 1][j] &gt;= c[i][j - 1]) {
+        c[i][j] = c[i - 1][j];
+      } else {
+        c[i][j] = c[i][j - 1];
+      }
+    }
+  }
+  
+  print(c, x, y, m, n);
+}
+
+function print(c, x, y, i, j) {
+  if (i == 0 || j == 0) {
+    return;
+  }
+  if (x[i-1] == y[j-1]) {
+    print(c, x, y, i-1, j-1);
+    // console.log(x[i-1]);
+    intersectionArr.push(x[i - 1]);
+  } else if (c[i - 1][j] &gt;= c[i][j - 1]) {
+    print(c, x, y, i - 1, j);
+  } else {
+    print(c, x, y, i, j - 1);
+  }
+}
+// 交集结果
+var intersectionArr = [];
+intersection([1, 2, 2, 1], [2, 2]);
+// intersection([1, 2, 2, 1, 4, 5], [2, 2, 1, 3, 5]);
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../something/Mobx.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../something/React.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../something/Mobx.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../something/React.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

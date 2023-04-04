@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>响应式页面开发 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html" class="active"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/CSS世界/响应式页面开发.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="响应式页面开发"><a class="header" href="#响应式页面开发">响应式页面开发</a></h1>
+<p>响应式页面开发的能力可以定义为：</p>
+<blockquote>
+<p>利用一套代码实现页面的布局和排版以适配不同分辨率的设备。</p>
+</blockquote>
+<p>响应式页面开发要求我们解决两大问题：</p>
+<ul>
+<li>为不同特性（如横屏还是竖屏等）的浏览器视窗使用不同的样式代码</li>
+<li>让页面元素的尺寸能够依据浏览器视窗尺寸变化而平滑变化</li>
+</ul>
+<p>本小节的学习目标是学会解决上述问题并能够开发这样一个经典的移动端响应式页面：</p>
+<p><a href="https://user-gold-cdn.xitu.io/2018/2/8/16175aa4154b7972?w=429&amp;h=877&amp;f=png&amp;s=85282">响应式页面</a></p>
+<p>我们分 3 个步骤来实现这样一个响应式页面。</p>
+<h2 id="步骤-1---添加-viewport-meta-标签"><a class="header" href="#步骤-1---添加-viewport-meta-标签">步骤 1 - 添加 viewport meta 标签</a></h2>
+<p>在页头 <code>head</code> 标签内添加 viewport meta 标签是实现响应式页面的第一步。</p>
+<p>viewport meta 标签源于 Apple 公司，用来定义 iOS Safari 浏览器展示网页内容的可视范围及缩放比率。它虽然没有成为W3C标准，但是被其他绝大多数的移动端浏览器所支持（目前已知 IE Mobile 10 不支持）。W3C 尝试将 viewport meta 标签的功能进行标准化并通过 CSS 的 @viewport 规则来实现同样的功能，但这个标准目前还在草案中，兼容性也没有 viewport meta 标签好。</p>
+<h3 id="pagespeed-准则"><a class="header" href="#pagespeed-准则">PageSpeed 准则</a></h3>
+<p>Google 网页性能分析工具 <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a> 的其中一条准则就是：</p>
+<p>网页应在 head 标签内添加 viewport meta 标签，以便优化在移动设备上的展示效果，其推荐的设置为：</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+</code></pre>
+<h3 id="扩展阅读"><a class="header" href="#扩展阅读">扩展阅读</a></h3>
+<ul>
+<li>Mozilla<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag">《Using the viewport meta tag to control layout on mobile browsers》</a></li>
+<li>Google<a href="https://developers.google.com/web/fundamentals/design-and-ux/responsive/#set-the-viewport">《Configure the viewport》</a></li>
+<li>Mozilla<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@viewport">《@viewport》</a></li>
+</ul>
+<h2 id="步骤-2---使用-media-queries"><a class="header" href="#步骤-2---使用-media-queries">步骤 2 - 使用 Media Queries</a></h2>
+<p>Media Queries 是为指定特性的浏览器视窗应用指定样式的手段，可以看成是 CSS 样式的过滤器或拦截器，通常情况下它可以通过 「@media 规则」结合「6 个查询参数」来拦截设备的浏览器特性（如显示类型、视窗高度、视窗宽度、横竖屏等），藉此可以为不同的特性应用不同的样式代码（相当于为不同的设备应用了不同的 CSS 样式）。</p>
+<h3 id="6-个参数"><a class="header" href="#6-个参数">6 个参数</a></h3>
+<table><thead><tr><th>参数名称</th><th>参数描述</th></tr></thead><tbody>
+<tr><td>min-width</td><td>当视窗宽度大于或等于指定值时，@media 规则下的样式将被应用</td></tr>
+<tr><td>min-width</td><td>当视窗宽度大于或等于指定值时，@media 规则下的样式将被应用</td></tr>
+<tr><td>max-width</td><td>当视窗宽度小于或等于指定值时，@media 规则下的样式将被应用</td></tr>
+<tr><td>min-height</td><td>当视窗高度大于或等于指定值时，@media 规则下的样式将被应用</td></tr>
+<tr><td>max-height</td><td>当视窗高度小于或等于指定值时，@media 规则下的样式将被应用</td></tr>
+<tr><td>orientation=portrait</td><td>当视窗高度大于或等于宽度时，@media 规则下的样式将被应用</td></tr>
+<tr><td>orientation=landscape</td><td>当视窗宽度大于高度时，@media 规则下的样式将被应用</td></tr>
+</tbody></table>
+<h3 id="2-种用法"><a class="header" href="#2-种用法">2 种用法</a></h3>
+<p>方法 1，使用 link 标签，根据指定特性引入特定的外部样式文件</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; media=&quot;(max-width: 640px)&quot; href=&quot;max-640px.css&quot;&gt;
+ 
+</code></pre>
+<p>方法 2，直接在 style 标签或 样式文件内使用 @media 规则</p>
+<pre><code class="language-css">@media (max-width: 640px) {
+  /*当视窗宽度小于或等于 640px 时，这里的样式将生效*/
+}
+ 
+</code></pre>
+<h3 id="样式断点"><a class="header" href="#样式断点">样式断点</a></h3>
+<p>Media Queries 所使用的<strong>查询参数的临界值</strong>又可称为「样式断点」。 在响应式页面开发过程中，对于「样式断点」我们需要掌握 2 个重要的技巧：</p>
+<p>依据目标设备的分辨率，制定一套合适的样式断点，并为不同的断点定制必要的 CSS 样式。 移动端优先的页面，可使用 min-width 查询参数从小到大来定义断点。 如果我们页面的响应式设计要涵盖从手机到高清大屏幕，什么样的「样式断点」比较合理呢？</p>
+<p>我们可以从业界一些热门可靠的 CSS 框架中寻找参考答案，例如 <a href="https://bulma.io/">Bulma</a>，其采用的「样式断点」有 5 个：</p>
+<table><thead><tr><th>断点名称</th><th>断点描述）</th></tr></thead><tbody>
+<tr><td>mobile</td><td>移动设备断点，视窗宽度 ≤ 768 px</td></tr>
+<tr><td>tablet</td><td>平板电脑设备断点，视窗宽度 ≥ 769 px</td></tr>
+<tr><td>desktop</td><td>桌面电脑断点，视窗宽度 ≥ 1024 px</td></tr>
+<tr><td>widescreen</td><td>宽屏电脑断点，视窗宽度 ≥ 1216 px</td></tr>
+<tr><td>fullhd</td><td>高清宽屏电脑断点，视窗宽度 ≥ 1408 px</td></tr>
+</tbody></table>
+<p>在实际工作中，「样式断点」的制定需要我们同视觉设计师一起沟通确认，因为视觉设计师可能需要根据不同的断点为页面设计不同的视觉表现。</p>
+<h3 id="一个小例子"><a class="header" href="#一个小例子">一个小例子</a></h3>
+<p>如果针对 tablet 及以上的设备定制样式，我们就可以这样写了：</p>
+<pre><code class="language-less">@media (min-width: 769px) {
+  /* tablet 及以上的设备，页面背景色设置为红色 */
+  body {
+    background-color: red;
+  }
+}
+ 
+</code></pre>
+<h3 id="课外作业"><a class="header" href="#课外作业">课外作业</a></h3>
+<ol>
+<li>使用桌面版的 Chrome 浏览器，打开 Google 的 <a href="https://googlesamples.github.io/web-fundamentals/fundamentals/design-and-ux/responsive/media-queries.html">在线 Media Queries 例子</a> 直观感受下使用 Media Queries 的效果（请注意缩放浏览器窗口观察页面展示效果）</li>
+<li>了解 <a href="https://bulma.io/">Bulma</a> 框架</li>
+</ol>
+<h3 id="扩展阅读-1"><a class="header" href="#扩展阅读-1">扩展阅读</a></h3>
+<ul>
+<li>Google <a href="https://developers.google.com/web/fundamentals/design-and-ux/responsive/">《Responsive Web Design Basic》</a></li>
+</ul>
+<h2 id="步骤-3---使用-viewport-单位及-rem"><a class="header" href="#步骤-3---使用-viewport-单位及-rem">步骤 3 - 使用 Viewport 单位及 rem</a></h2>
+<p>Media Queries 只解决了「为不同特性的浏览器视窗使用不同的样式代码」的问题，而 Viewport 单位及 rem 的应用，则是为了解决第二个问题：让页面元素的尺寸能够依据浏览器视窗尺寸变化而平滑变化。</p>
+<p>关于 Viewport 单位及 rem 单位的基本概念，可通过下面的扩展阅读进行回顾复习。</p>
+<p>BTW：本文所提及的 Viewport，译为「视窗」，其含义与扩展阅读中相关文章中的「视口」一致。</p>
+<h3 id="方法-1---仅使用-vw-作为-css-长度单位"><a class="header" href="#方法-1---仅使用-vw-作为-css-长度单位">方法 1 - 仅使用 vw 作为 CSS 长度单位</a></h3>
+<p>在仅使用 vw 单位作为唯一 CSS 单位时，我们需遵守：</p>
+<ol>
+<li>利用 Sass 函数将设计稿元素尺寸的像素单位转换为 vw 单位</li>
+</ol>
+<pre><code class="language-scss">// iPhone 6尺寸作为设计稿基准
+$vw_base: 375; 
+@function vw($px) {
+    @return ($px / $vm_base) * 100vw;
+}
+</code></pre>
+<ol start="2">
+<li>无论是文本字号大小还是布局高宽、间距、留白等都使用 vw 作为 CSS 单位</li>
+</ol>
+<pre><code class="language-less">.mod_nav {
+    background-color: #fff;
+    &amp;_list {
+        display: flex;
+        padding: vw(15) vw(10) vw(10); // 内间距
+        &amp;_item {
+            flex: 1;
+            text-align: center;
+            font-size: vw(10); // 字体大小
+            &amp;_logo {
+                display: block;
+                margin: 0 auto;
+                width: vw(40); // 宽度
+                height: vw(40); // 高度
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    max-width: 100%;
+                }
+            }
+            &amp;_name {
+                margin-top: vw(2);
+            }
+        }
+    }
+}
+ 
+</code></pre>
+<ol start="3">
+<li>1 物理像素线（也就是普通屏幕下 1px ，高清屏幕下 0.5px 的情况）采用 transform 属性 scale 实现</li>
+</ol>
+<pre><code class="language-css">.mod_grid {
+    position: relative;
+    &amp;::after {
+        // 实现1物理像素的下边框线
+        content: '';
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+        background-color: #ddd;
+        height: 1px;
+        left: 0;
+        right: 0;
+        top: 0;
+        @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+            -webkit-transform: scaleY(0.5);
+            -webkit-transform-origin: 50% 0%;
+        }
+    }
+    ...
+}
+</code></pre>
+<ol start="4">
+<li>对于需要保持高宽比的图，应改用 padding-top 实现</li>
+</ol>
+<pre><code class="language-less">.mod_banner {
+    position: relative;
+    // 使用padding-top 实现宽高比为 100:750 的图片区域
+    padding-top: percentage(100/750);
+    height: 0;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        left: 0;
+        top: 0; 
+    }
+}
+ 
+</code></pre>
+<p>由此，我们不需要增加其他任何额外的脚本代码就能够轻易实现一个常见布局的响应式页面，效果如下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/2/8/16175d6ffdfe7c0e?w=1409&amp;h=685&amp;f=png&amp;s=207733" alt="vw和rem" /></p>
+<p>体验地址：<a href="https://jdc.jd.com/demo/ting/vw_layout.html">视口单位布局 —— vw 单位</a></p>
+<blockquote>
+<p>友情提醒：桌面版 Chrome 支持的字体大小默认不能小于 12PX，可通过 「chrome://settings/ 显示高级设置－网络内容－自定义字体－最小字号（滑到最小）」设置后再到模拟器里体验 DEMO。</p>
+</blockquote>
+<h3 id="方法-2---vw-搭配-rem寻找最优解"><a class="header" href="#方法-2---vw-搭配-rem寻找最优解">方法 2 - vw 搭配 rem，寻找最优解</a></h3>
+<p>方法 1 实现的响应式页面虽然看起来适配得很好，但是你会发现由于它是利用 Viewport 单位实现的布局，依赖于视窗大小而自动缩放，无论视窗过大还是过小，它也随着视窗过大或者过小，失去了最大最小宽度的限制，有时候不一定是我们所期待的展示效果。试想一下一个 750px 宽的设计稿在 1920px 的大屏显示器上的糟糕样子。</p>
+<p>当然，你可以不在乎移动端页面在 PC 上的展现效果，但如果有低成本却有效的办法来修复这样的小瑕疵，是真切可以为部分用户提升体验的。</p>
+<p>我们可以结合 rem 单位来实现页面的布局。rem 弹性布局的核心在于根据视窗大小变化动态改变根元素的字体大小，那么我们可以通过以下步骤来进行优化：</p>
+<ol>
+<li>给根元素的字体大小设置随着视窗变化而变化的 vw 单位，这样就可以实现动态改变其大小</li>
+<li>其他元素的文本字号大小、布局高宽、间距、留白都使用 rem 单位</li>
+<li>限制根元素字体大小的最大最小值，配合 body 加上最大宽度和最小宽度，实现布局宽度的最大最小限制</li>
+</ol>
+<p>核心代码实现如下：</p>
+<pre><code class="language-scss">// rem 单位换算：定为 75px 只是方便运算，750px-75px、640-64px、1080px-108px，如此类推
+$vw_fontsize: 75; // iPhone 6尺寸的根元素大小基准值
+@function rem($px) {
+     @return ($px / $vw_fontsize ) * 1rem;
+}
+// 根元素大小使用 vw 单位
+$vw_design: 750;
+html {
+    font-size: ($vw_fontsize / ($vw_design / 2)) * 100vw; 
+    // 同时，通过Media Queries 限制根元素最大最小值
+    @media screen and (max-width: 320px) {
+        font-size: 64px;
+    }
+    @media screen and (min-width: 540px) {
+        font-size: 108px;
+    }
+}
+// body 也增加最大最小宽度限制，避免默认100%宽度的 block 元素跟随 body 而过大过小
+body {
+    max-width: 540px;
+    min-width: 320px;
+}
+ 
+</code></pre>
+<p>体验地址：<a href="https://jdc.jd.com/demo/ting/vw_rem_layout.html">https://jdc.jd.com/demo/ting/vw_rem_layout.html</a></p>
+<h3 id="扩展阅读-2"><a class="header" href="#扩展阅读-2">扩展阅读</a></h3>
+<ul>
+<li>Mozilla<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">《Length》</a></li>
+<li>凹凸实验室 <a href="https://aotu.io/notes/2017/04/28/2017-4-28-CSS-viewport-units/">《利用视口单位实现适配布局》</a></li>
+</ul>
+<h2 id="小结"><a class="header" href="#小结">小结</a></h2>
+<p>在实际工作过程中，考虑到设计以及开发成本，视觉设计师是不大可能为每种不同分辨率的设备分别设计不同的稿子的，拿移动端页面来说，通常会以 iPhone 7 的分辨率（宽为 750 px）作为基准分辨率来出设计稿。因此「响应式页面开发」也便成为了移动互联网时代「H5 开发」的必备技能。</p>
+<p>本小节所介绍的「利用 Viewport 单位及 rem 实现响应式页面」，相对于传统的 JavaScript 脚本结合 rem 的方式来得更简单优雅。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CSS世界/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CSS世界/CSS基础.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CSS世界/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CSS世界/CSS基础.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

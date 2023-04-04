@@ -1,0 +1,705 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CSS盒模型 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html" class="active"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/CSS世界/CSS盒模型.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="第一问什么是盒模型"><a class="header" href="#第一问什么是盒模型">第一问：什么是盒模型？</a></h2>
+<p>可以说，页面就是由一个个盒模型堆砌起来的，每个HTML元素都可以叫做盒模型，盒模型由外而内包括：外边距（margin）、边框（border）、填充（亦称内边距）（padding）、内容（content）。它在页面中所占的实际宽度是margin + border + padding + content 的宽度相加。
+但是，盒模型有<strong>标准盒模型</strong>和<strong>IE的盒模型</strong>。</p>
+<h2 id="第二问两者的区别是什么"><a class="header" href="#第二问两者的区别是什么">第二问：两者的区别是什么？</a></h2>
+<h3 id="标准的w3c盒模型"><a class="header" href="#标准的w3c盒模型">标准的(W3C)盒模型：</a></h3>
+<p><img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B.png" alt="标准" />
+<img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/IE%E7%9B%92%E6%A8%A1%E5%9E%8B.png" alt="IE" /></p>
+<h2 id="第三问怎么设置这两种模型呢"><a class="header" href="#第三问怎么设置这两种模型呢">第三问：怎么设置这两种模型呢？</a></h2>
+<p>很简单，通过设置 <code>box-sizing:content-box(W3C)/border-box(IE)</code> 就可以达到自由切换的效果。</p>
+<h2 id="第四问js怎么获取和设置盒模型的宽高呢你能想到几种方法"><a class="header" href="#第四问js怎么获取和设置盒模型的宽高呢你能想到几种方法">第四问JS怎么获取和设置盒模型的宽高呢，你能想到几种方法？</a></h2>
+<ul>
+<li>第一种：<code>dom.style.width/height</code> 这种方法只能获取使用内联样式的元素的宽和高。</li>
+<li>第二种： <code>dom.currentStyle.width/height</code> 这种方法获取的是浏览器渲染以后的元素的宽和高，无论是用何种方式引入的css样式都可以，但只有IE浏览器支持这种写法。</li>
+<li>第三种：<code>window.getComputedStyle(dom).width/height</code> 这种方法获取的也是浏览器渲染以后的元素的宽和高，但这种写法兼容性更好一些。</li>
+<li>第四种： <code>dom.getBoundingClientRect().width/height</code> 这种方法经常使用的场所是，计算一个元素的绝对位置（相对于视窗左上角），它能拿到元素的left、top、width、height 4个属性。</li>
+</ul>
+<h2 id="第五问描述一下下面盒子的大小颜色什么的content-box模型"><a class="header" href="#第五问描述一下下面盒子的大小颜色什么的content-box模型">第五问：描述一下下面盒子的大小，颜色什么的（content-box模型）</a></h2>
+<pre><code class="language-html">&lt;html&gt;
+&lt;style&gt;
+  body{
+    background-color: gray;
+  }
+  div{
+    color: blue;
+    width: 100px;
+    background-color: pink;
+    border: 10px solid;
+    padding: 20px;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>这里不指考了一点，问题列一下：</p>
+<ul>
+<li>整个盒子的大小</li>
+<li>padding的颜色</li>
+<li>border的颜色</li>
+<li>height为0了，看得见盒子吗？</li>
+</ul>
+<p>答案：如图所示
+<img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/css%E9%9D%A2%E8%AF%95%E9%A2%98.png" alt="css面试题" /></p>
+<ul>
+<li>整个盒子的大小 = 0 （因为height为0）</li>
+<li>padding的颜色 = pink（继承content的颜色）</li>
+<li>border的颜色 = blue（继承color字体的颜色，默认为black）</li>
+<li>height为0了，看得见盒子吗？ （虽然height为0，但是看得见盒子，因为有border和padding）</li>
+</ul>
+<p>这里需要注意：</p>
+<ul>
+<li>如果没有写border-style，那么边框的宽度不管设置成多少，都是无效的。</li>
+<li>border-color的颜色默认跟字体颜色相同</li>
+<li>padding颜色跟背景颜色相同</li>
+</ul>
+<h2 id="第六问当small盒子设置成圆形时内容会超出圆形吗为什么"><a class="header" href="#第六问当small盒子设置成圆形时内容会超出圆形吗为什么">第六问：当small盒子设置成圆形时，内容会超出圆形吗？为什么</a></h2>
+<pre><code class="language-html">&lt;html&gt;
+&lt;style&gt;
+  body{
+    background-color: gray;
+  }
+  .big{
+    width: 400px;
+    height: 400px;
+    background-color: pink;
+  }
+  .small{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    overflow-wrap: break-word;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;div class=&quot;big&quot;&gt;
+    &lt;div class=&quot;small&quot;&gt;
+      ddddddddddddddddddddddddddddddddddddddddddd
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>会超出圆形。原因如图所示，是因为border-radius只是改变视觉上的效果，实际上盒子占据的空间还是不变的。
+<img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/css%E9%9D%A2%E8%AF%95%E9%A2%982.png" alt="css面试题" /></p>
+<h2 id="第七问当元素设置成inline-block会出现什么问题怎么消除"><a class="header" href="#第七问当元素设置成inline-block会出现什么问题怎么消除">第七问：当元素设置成inline-block会出现什么问题？怎么消除？</a></h2>
+<p>这是网易有道的小姐姐面试官的问题，我承认我确实不知道这个问题！
+<strong>真正意义上的inline-block水平呈现的元素间，换行显示或空格分隔的情况下会有间距，很简单的个例子：</strong>
+我们使用CSS更改非inline-block水平元素为inline-block水平，也会有该问题</p>
+<p><img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/css%E9%9D%A2%E8%AF%95%E9%A2%987.png" alt="7" /></p>
+<pre><code class="language-html">.space a {
+    display: inline-block;
+    padding: .5em 1em;
+    background-color: #cad5eb;
+}
+&lt;div class=&quot;space&quot;&gt;
+    &lt;a href=&quot;##&quot;&gt;惆怅&lt;/a&gt;
+    &lt;a href=&quot;##&quot;&gt;淡定&lt;/a&gt;
+    &lt;a href=&quot;##&quot;&gt;热血&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="去除inline-block元素间间距的n种方法"><a class="header" href="#去除inline-block元素间间距的n种方法">去除inline-block元素间间距的N种方法：</a></h3>
+<ol>
+<li>元素间留白间距出现的原因就是<strong>标签段之间的空格</strong>，因此，去掉HTML中的空格，自然间距就木有了。考虑到代码可读性，显然连成一行的写法是不可取的，我们可以：</li>
+</ol>
+<pre><code class="language-html">&lt;div class=&quot;space&quot;&gt;
+    &lt;a href=&quot;##&quot;&gt;
+    惆怅&lt;/a&gt;&lt;a href=&quot;##&quot;&gt;
+    淡定&lt;/a&gt;&lt;a href=&quot;##&quot;&gt;
+    热血&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>或者是：</p>
+<pre><code class="language-html">&lt;div class=&quot;space&quot;&gt;
+    &lt;a href=&quot;##&quot;&gt;惆怅&lt;/a
+    &gt;&lt;a href=&quot;##&quot;&gt;淡定&lt;/a
+    &gt;&lt;a href=&quot;##&quot;&gt;热血&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>或者是借助HTML注释：</p>
+<pre><code class="language-HTML">&lt;div class=&quot;space&quot;&gt;
+    &lt;a href=&quot;##&quot;&gt;惆怅&lt;/a&gt;&lt;!--
+    --&gt;&lt;a href=&quot;##&quot;&gt;淡定&lt;/a&gt;&lt;!--
+    --&gt;&lt;a href=&quot;##&quot;&gt;热血&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<ol start="2">
+<li>使用margin负值</li>
+<li>让闭合标签吃胶囊</li>
+<li>使用font-size:0
+详细的可以看看这篇文章 <a href="http://www.zhangxinxu.com/wordpress/?p=2357">去除inline-block元素间间距的N种方法</a></li>
+</ol>
+<h2 id="第八问行内元素可以设置paddingmargin吗"><a class="header" href="#第八问行内元素可以设置paddingmargin吗">第八问：行内元素可以设置padding，margin吗？</a></h2>
+<ul>
+<li>第一：行内元素与宽度 宽度不起作用</li>
+</ul>
+<pre><code class="language-css">span {
+  width:200px;
+}
+</code></pre>
+<p>没有变化
+第二：行内元素与高度 高度不起作用</p>
+<pre><code class="language-css">span{
+  height:200px;
+}
+</code></pre>
+<p>没用变化</p>
+<p>第三：行内元素与padding,margin</p>
+<pre><code class="language-css">span{
+  padding:200px;
+}
+</code></pre>
+<p>影响左右，不影响上下 ,span包裹的文字左右位置改变，上下位置不变，但背景色会覆盖上面元素的内容。 如图所示：
+<img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/css%E9%9D%A2%E8%AF%95%E9%A2%983.png" alt="css面试题" />
+<strong>行内元素（inline-block）的padding左右有效 ，但是由于设置padding上下不占页面空间，无法显示效果，所以无效。</strong></p>
+<h2 id="第九问padding1px2px3px则等效于什么"><a class="header" href="#第九问padding1px2px3px则等效于什么">第九问：padding:1px2px3px;则等效于什么？</a></h2>
+<p>简单来说就是 这四个值，分别代表上、右、下、左。如果没有写下的话，那就下复制上的，同理左复制右的值。
+因此， 你应该明白了</p>
+<ul>
+<li>当padding的值只有一个时，就是后面三个都复制了第一个</li>
+<li>当写两个时，就是写了top和right，因此bottom复制top，left复制right</li>
+<li>当写了三个时，就是写了top，right，bottom，因此left复制right。</li>
+</ul>
+<p>这么简单的规则，再也不会忘记了吧。</p>
+<h2 id="第十问内边距的百分数值是这么计算的"><a class="header" href="#第十问内边距的百分数值是这么计算的">第十问：内边距的百分数值是这么计算的</a></h2>
+<p>我们知道，padding可以这么设置：<code>padding:100px</code>，也可以 <code>padding:20%</code>，那当是百分比时是怎么计算的呢？就是根据父元素的宽度计算的；</p>
+<h2 id="第十一问那为什么不根据自己的宽度呢而要根据父元素"><a class="header" href="#第十一问那为什么不根据自己的宽度呢而要根据父元素">第十一问：那为什么不根据自己的宽度呢？而要根据父元素</a></h2>
+<p>这个问题可以这么思考，如果不根据父元素，而是根据本身的宽度的话。那么当padding生效后，本身的宽度不就变大了吗？那么padding不是也要变大吗？这就陷入了死循环（哇塞！）。
+或者要是本身没有宽度，那岂不是怎么设置padding都是无效的！！！</p>
+<h2 id="第十二问什么是边距重叠什么情况下会发生边距重叠如何解决边距重叠"><a class="header" href="#第十二问什么是边距重叠什么情况下会发生边距重叠如何解决边距重叠">第十二问：什么是边距重叠？什么情况下会发生边距重叠？如何解决边距重叠？</a></h2>
+<p>边距重叠：两个box如果都设置了边距，那么在垂直方向上，两个box的边距会发生重叠，以绝对值大的那个为最终结果显示在页面上。
+边距重叠分为两种：</p>
+<ol>
+<li>同级关系的重叠：</li>
+</ol>
+<blockquote>
+<p>同级元素在垂直方向上外边距会出现重叠情况，最后外边距的大小取两者绝对值大的那个**</p>
+</blockquote>
+<pre><code class="language-html">&lt;section class=&quot;fat&quot;&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+      .fat {
+          background-color: #ccc;
+      }
+      .fat .child-one {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 30px;
+          background-color: #f00;
+      }
+
+      .fat .child-two {
+          width: 100px;
+          height: 100px;
+          margin-top: 10px;
+          background-color: #345890;
+      }
+  &lt;/style&gt;
+  &lt;div class=&quot;child-one&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;child-two&quot;&gt;&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<ol start="2">
+<li>父子关系的边距重叠：</li>
+</ol>
+<blockquote>
+<p>父子关系，如果子元素设置了外边距，在没有把父元素变成BFC的情况下，父元素也会产生外边距。</p>
+</blockquote>
+<p>给父元素添加 <code>overflow：hidden</code> 这样父元素就变为 BFC，不会随子元素产生外边距，但是父元素的高会变化</p>
+<pre><code class="language-html">&lt;section class=&quot;box&quot; id=&quot;fat&quot;&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+      #fat {
+          background-color: #f00;
+          overflow: hidden;
+      }
+
+      #fat .child {
+          margin-top: 10px;
+          height: 100px;
+          background-color: blue;
+      }   
+  &lt;/style&gt;
+  &lt;article class=&quot;child&quot;&gt;&lt;/article&gt;
+&lt;/section&gt;
+</code></pre>
+<h2 id="第十三问第二种哪里算是外边距重叠"><a class="header" href="#第十三问第二种哪里算是外边距重叠">第十三问：第二种哪里算是外边距重叠？？？</a></h2>
+<p>实际上，这也是第一种的变形。</p>
+<pre><code class="language-html">header {
+  background: goldenrod;
+}
+h1 {
+  margin: 1em;
+}
+&lt;header&gt;
+  &lt;h1&gt;Welcome to ConHugeCo&lt;/h1&gt;
+&lt;/header&gt;
+</code></pre>
+<p>!(css)[./CSS盒模型/css面试4.png]</p>
+<p>可以看到其实是header的margin为0，然后h1的margin为1em，因此header和h1的margin发生了重叠，然后header的margin就取1em和0两个值中最大的值了，所以当然取1em啦。</p>
+<blockquote>
+<p>（网上有说是因为margin的传递性，但我并不同意，因为我实践了一下，发现不管父盒子有没有margin-top，父盒子只会选择两者值中的最大值，跟传递性似乎没啥关系）</p>
+</blockquote>
+<h2 id="第十四问为什么回出现margin重叠的问题粗俗点就是问设计者的脑子有问题吗"><a class="header" href="#第十四问为什么回出现margin重叠的问题粗俗点就是问设计者的脑子有问题吗">第十四问：为什么回出现margin重叠的问题？粗俗点就是问设计者的脑子有问题吗？</a></h2>
+<p>这个就是问设计了margin重叠的巧妙用处。
+这个曾经有位面试官问过我，我不知道，我请教了他，他说，在flex布局前，要实<code>justify-content： space-evenly</code>的效果，利用浮动布局，然后给每个盒子设置<code>margin-right</code>，<code>margin-left</code>就可以实现了，这样就不用去单独地再去设置第一个盒子的<code>margin-left</code>和最后一个盒子的<code>margin-right</code>，那时候我信了。
+后来越想越不对，不是说margin水平方向不会发生重叠问题吗？？？？
+但是根据面试官的思路来的话，在垂直方向似乎就讲的通了。</p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;style&gt;
+  body{
+    background-color: gray;
+  }
+  ul{
+    width: 300px;
+    height: 170px;
+    background-color: blue;
+    border: 1px solid;
+  }
+  li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 40px;
+    height: 30px;
+    background-color: orange;
+  }
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/css%E9%9D%A2%E8%AF%955.png" alt="5" /></p>
+<p>或许你有更好的说法，欢迎下方留言评论补充！！！
+<strong>那该怎么解决margin边距重叠的问题呢？</strong>
+解决方法就是生成BFC</p>
+<h2 id="第十五问什么是bfc"><a class="header" href="#第十五问什么是bfc">第十五问：什么是BFC？</a></h2>
+<p>BFC 全称为<strong>块级格式化上下文 (Block Formatting Context) <strong>。BFC是 W3C CSS 2.1 规范中的一个概念，它决定了元素</strong>如何对其内容进行定位</strong>以及<strong>与其他元素的关系和相互作用</strong>，当涉及到可视化布局的时候，Block Formatting Context提供了一个环境，HTML元素在这个环境中按照一定规则进行布局。一个环境中的元素不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。这里有点类似一个BFC就是一个独立的行政单位的意思。可以说BFC就是一个作用范围，把它理解成是一个独立的容器</p>
+<h2 id="第十六问那么bfc的原理是什么呢"><a class="header" href="#第十六问那么bfc的原理是什么呢">第十六问：那么BFC的原理是什么呢？</a></h2>
+<ol>
+<li>内部的Box会在垂直方向上一个接一个的放置</li>
+<li>垂直方向上的距离由margin决定。（完整的说法是：属于同一个BFC的两个相邻Box的margin会发生重叠（塌陷），与方向无关。）</li>
+<li>每个元素的左外边距与包含块的左边界相接触（从左向右），即使浮动元素也是如此。（这说明BFC中子元素不会超出他的包含块，而position为absolute的元素可以超出他的包含块边界）</li>
+<li>BFC的区域不会与float的元素区域重叠</li>
+<li>计算BFC的高度时，浮动子元素也参与计算</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面元素，反之亦然</li>
+</ol>
+<h2 id="第十七问bfc由什么条件创立"><a class="header" href="#第十七问bfc由什么条件创立">第十七问：BFC由什么条件创立?</a></h2>
+<ol>
+<li>浮动元素 (元素的 float 不是 none)</li>
+<li>绝对定位元素 (元素具有 position 为 absolute 或 fixed)</li>
+<li>内联块 (元素具有 display: inline-block)</li>
+<li>表格单元格 (元素具有 display: table-cell，HTML表格单元格默认属性)</li>
+<li>表格标题 (元素具有 display: table-caption, HTML表格标题默认属性)</li>
+<li>弹性盒（flex或inline-flex）</li>
+<li>display: flow-root</li>
+<li>column-span: all</li>
+<li>具有overflow 且值不是 visible 的块元素</li>
+</ol>
+<p><del>总结：pdfo</del></p>
+<h3 id="bfc的约束规则"><a class="header" href="#bfc的约束规则">BFC的约束规则</a></h3>
+<ul>
+<li>内部的盒会在垂直方向一个接一个排列（可以看作BFC中有一个的常规流）</li>
+<li>处于同一个BFC中的元素相互影响，可能会发生外边距重叠</li>
+<li>每个元素的margin box的左边，与容器块border box的左边相接触(对于从左往右的格式化，否则相反)，即使存在浮动也是如此</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然</li>
+<li><strong>计算BFC的高度时，考虑BFC所包含的所有元素，连浮动元素也参与计算</strong></li>
+<li>浮动盒区域不叠加到BFC上</li>
+</ul>
+<h2 id="第十八问-bfc的使用场景有哪些呢"><a class="header" href="#第十八问-bfc的使用场景有哪些呢">第十八问： BFC的使用场景有哪些呢</a></h2>
+<ol>
+<li>可以用来自适应布局。</li>
+</ol>
+<pre><code class="language-html">&lt;!-- BFC不与float重叠 --&gt;
+&lt;section id=&quot;layout&quot;&gt;
+    &lt;style media=&quot;screen&quot;&gt;
+      #layout{
+        background: red;
+      }
+      #layout .left{
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: #664664;
+      }
+      #layout .right{
+        height: 110px;
+        background: #ccc;
+        overflow: auto;
+      }
+    &lt;/style&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+    &lt;!-- 利用BFC的这一个原理就可以实现两栏布局，左边定宽，右边自适应。不会相互影响，哪怕高度不相等。 --&gt;
+&lt;/section&gt;
+</code></pre>
+<ol start="2">
+<li>可以清除浮动：（塌陷问题）</li>
+</ol>
+<pre><code class="language-html">&lt;!-- BFC子元素即使是float也会参与计算 --&gt;
+&lt;section id=&quot;float&quot;&gt;
+    &lt;style media=&quot;screen&quot;&gt;
+      #float{
+        background: #434343;
+        overflow: auto;
+      }
+      #float .float{
+        float: left;
+        font-size: 30px;
+      }
+    &lt;/style&gt;
+    &lt;div class=&quot;float&quot;&gt;我是浮动元素&lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<ol start="3">
+<li>解决垂直边距重叠：</li>
+</ol>
+<pre><code class="language-html">&lt;section id=&quot;margin&quot;&gt;
+    &lt;style&gt;
+        #margin{
+            background: pink;
+            overflow: hidden;
+        }
+        #margin&gt;p{
+            margin: 5px auto 25px;
+            background: red;
+        }
+        #margin&gt;div&gt;p {
+            margin: 5px auto 20px;
+            background: red;
+        }
+    &lt;/style&gt;
+    &lt;p&gt;1&lt;/p&gt;
+    &lt;div style=&quot;overflow:hidden&quot;&gt;
+        &lt;p&gt;2&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;3&lt;/p&gt;
+    &lt;!-- 这样就会出现第一个p标签的margin-bottom不会和第二个p标签的margin-top重叠，这也是BFC元素的另一个原则，不会影响到外边的box，是一个独立的区域。 --&gt;
+&lt;/section&gt;
+</code></pre>
+<h2 id="第十九问清除浮动的方法最常用的4种"><a class="header" href="#第十九问清除浮动的方法最常用的4种">第十九问：清除浮动的方法（最常用的4种）</a></h2>
+<p>这时候很多人会想到新建标签clear：both和float 方法，但是这两种方法并不推荐使用！
+什么是<code>clear：both</code>
+<code>clear：both</code>：本质就是闭合浮动， 就是让父盒子闭合出口和入口，不让子盒子出来</p>
+<ol>
+<li>额外标签法（在最后一个浮动标签后，新加一个标签，给其设置<code>clear：both</code>；）（不推荐）</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+    .fahter{
+        width: 400px;
+        border: 1px solid deeppink;
+    }
+    .big{
+        width: 200px;
+        height: 200px;
+        background: darkorange;
+        float: left;
+    }
+    .small{
+        width: 120px;
+        height: 120px;
+        background: darkmagenta;
+        float: left;
+    }
+    .footer{
+        width: 900px;
+        height: 100px;
+        background: darkslateblue;
+    }
+    .clear{
+        clear:both;
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;fahter&quot;&gt;
+        &lt;div class=&quot;big&quot;&gt;big&lt;/div&gt;
+        &lt;div class=&quot;small&quot;&gt;small&lt;/div&gt;
+        &lt;div class=&quot;clear&quot;&gt;额外标签法&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="./CSS%E7%9B%92%E6%A8%A1%E5%9E%8B/css%E9%9D%A2%E8%AF%956.png" alt="" />
+如果我们清除了浮动，父元素自动检测子盒子最高的高度，然后与其同高。</p>
+<p>优点：通俗易懂，方便</p>
+<p>缺点：添加无意义标签，语义化差
+不建议使用。</p>
+<ol start="2">
+<li>父级添加overflow属性（父元素添加overflow:hidden）（不推荐）</li>
+</ol>
+<p>通过触发BFC方式，实现清除浮动</p>
+<pre><code class="language-css">.fahter{
+    width: 400px;
+    border: 1px solid deeppink;
+    overflow: hidden;
+}
+</code></pre>
+<p>优点：代码简洁</p>
+<p>缺点：内容增多的时候容易造成不会自动换行导致内容被隐藏掉，无法显示要溢出的元素</p>
+<p>不推荐使用</p>
+<ol start="3">
+<li>使用after伪元素清除浮动（推荐使用）</li>
+</ol>
+<pre><code class="language-html">.clearfix:after{/*伪元素是行内元素 正常浏览器清除浮动方法*/
+    content: &quot;&quot;;
+    display: block;
+    height: 0;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix{
+    *zoom: 1;/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+}
+ 
+&lt;body&gt;
+    &lt;div class=&quot;fahter clearfix&quot;&gt;
+        &lt;div class=&quot;big&quot;&gt;big&lt;/div&gt;
+        &lt;div class=&quot;small&quot;&gt;small&lt;/div&gt;
+        &lt;!--&lt;div class=&quot;clear&quot;&gt;额外标签法&lt;/div&gt;--&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>优点：符合闭合浮动思想，结构语义化正确</p>
+<p>缺点：ie6-7不支持伪元素：after，使用zoom:1 触发 hasLayout.</p>
+<p>推荐使用</p>
+<ol start="4">
+<li>使用before和after双伪元素清除浮动</li>
+</ol>
+<pre><code class="language-html"> .clearfix:after,.clearfix:before{
+    content: &quot;&quot;;
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+ 
+ &lt;div class=&quot;fahter clearfix&quot;&gt;
+        &lt;div class=&quot;big&quot;&gt;big&lt;/div&gt;
+        &lt;div class=&quot;small&quot;&gt;small&lt;/div&gt;
+    &lt;/div&gt;
+
+ &lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>优点：代码更简洁</p>
+<p>缺点：用zoom:1触发hasLayout.</p>
+<p>推荐使用</p>
+<ol start="5">
+<li>浮动父元素</li>
+</ol>
+<pre><code class="language-html">
+img{
+  width:50px;
+  border:1px solid #8e8e8e;
+  float:left;
+}
+&lt;div style=&quot;float:left&quot;&gt;
+  &lt;img src=&quot;images/search.jpg&quot;/&gt;
+  &lt;img src=&quot;images/tel.jpg&quot;/&gt;
+  &lt;img src=&quot;images/weixin.png&quot;/&gt;
+  &lt;img src=&quot;images/nav_left.jpg&quot;/&gt;
+&lt;/div&gt;
+</code></pre>
+<p>这种方式也不推荐，了解即可。</p>
+<h3 id="参考链接"><a class="header" href="#参考链接">参考链接：</a></h3>
+<ol>
+<li>https://juejin.cn/post/6880111680153059341</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CSS世界/CSS基础.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../CSS世界/CSS垂直居中.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CSS世界/CSS基础.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../CSS世界/CSS垂直居中.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

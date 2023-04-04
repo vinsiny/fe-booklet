@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JS八股 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html" class="active"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/JS&amp;TS/JS八股.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="防抖与节流"><a class="header" href="#防抖与节流">防抖与节流</a></h2>
+<h3 id="防抖-debounce"><a class="header" href="#防抖-debounce">防抖 debounce</a></h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。（延迟执行，重复触发时，取消上一个计时，重新开始倒计时）</p>
+</blockquote>
+<p><img src="./JS%E5%85%AB%E8%82%A1/1.webp" alt="1" /></p>
+<ol start="2">
+<li>适用场景</li>
+</ol>
+<ul>
+<li>窗口的resize、scroll</li>
+<li>输入框内容校验</li>
+</ul>
+<ol start="3">
+<li>实现</li>
+</ol>
+<pre><code class="language-js">function debounce(fun, delay) {
+  return function (args) {
+    let that = this
+    let _args = args
+    clearTimeout(fun.id)
+    fun.id = setTimeout(function () {
+        fun.call(that, _args)
+    }, delay)
+  }
+}
+// 使用方法
+let inputb = document.getElementById('debounce')
+
+let debounceAjax = debounce(ajax, 500)
+
+inputb.addEventListener('keyup', function (e) {
+    debounceAjax(e.target.value)
+})
+
+</code></pre>
+<h3 id="节流"><a class="header" href="#节流">节流</a></h3>
+<ol>
+<li>定义</li>
+</ol>
+<blockquote>
+<p>规定在一个单位时间内，只能触发一次函数。如果这个单位时间内触发多次函数，只有一次生效。（以固定频率执行）</p>
+</blockquote>
+<p><img src="./JS%E5%85%AB%E8%82%A1/2.webp" alt="2" /></p>
+<ol start="2">
+<li>适用场景</li>
+</ol>
+<ul>
+<li>鼠标不断点击触发，mousedown(单位时间内只触发一次)</li>
+<li>监听滚动事件，比如是否滑到底部自动加载更多，用throttle来判断</li>
+</ul>
+<ol start="3">
+<li>实现</li>
+</ol>
+<pre><code class="language-js">function throttle(fun, delay) {
+  let last, deferTimer
+  return function () {
+    let that = this;
+    let _args = arguments;
+    let now = Date.now();
+    if (last &amp;&amp; now &lt; last + delay) {
+        clearTimeout(deferTimer);
+        deferTimer = setTimeout(function () {
+            last = now;
+            fun.apply(that, _args);
+        }, delay);
+    } else {
+        last = now;
+        fun.apply(that, _args);
+    }
+  }
+}
+
+// 使用方式
+let throttleAjax = throttle(ajax, 1000)
+
+let inputc = document.getElementById('throttle')
+inputc.addEventListener('keyup', function(e) {
+    throttleAjax(e.target.value)
+});
+</code></pre>
+<h2 id="defer-与-async"><a class="header" href="#defer-与-async">defer 与 async</a></h2>
+<p>defer 和 async 在网络读取（下载脚本）时行为类似，均是异步的（相较于 HTML 解析）
+两者区别在于：</p>
+<ol>
+<li>脚本异步下载完之后执行的时机：defer 会在<strong>所有文档元素解析完成后，DOMContentLoaded 事件触发之前执行</strong>；async 会在<strong>脚本异步下载完成后立刻执行</strong>。</li>
+<li>脚本异步下载完之后的加载顺序：defer 按照脚本<strong>开始下载的顺序执行脚本</strong>；async 则是<strong>下载完后就执行，是乱序执行</strong>，因为 async 脚本的加载和执行是紧挨着执行的，因此哪个脚本先加载完成就会先执行哪个。</li>
+</ol>
+<blockquote>
+<p>defer 按照脚本声明顺序执行，async 按照脚本加载完成的先后顺序执行。</p>
+</blockquote>
+<p>async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的。</p>
+<h2 id="requestanimationframe"><a class="header" href="#requestanimationframe">requestAnimationFrame</a></h2>
+<ol>
+<li>定义：告知浏览器在<strong>下一次重绘前，调用其回调函数</strong>来更新动画。</li>
+<li>内部执行机制：</li>
+</ol>
+<ul>
+<li>首先判断 <code>document.hidden</code> 属性是否可见（true），可见状态下才能继续执行以下步骤。</li>
+<li>浏览器<strong>清空</strong>回调队列中的动画函数。</li>
+<li><code>requestAnimationFrame() </code>将回调函数追加到<strong>动画帧请求回调函数列表</strong>的末尾。
+&gt;注意：执行 <code>requestAnimationFrame(callback)</code> 不会立即调用 callback 回调函数，只是将其放入<strong>动画帧请求回调函数队列</strong>(不知道是不是浏览器维护回流/重绘操作的队列？总之该队列是与宏任务/微任务等回调队列独立开的)而已，同时注意，每个 callback回调函数都有一个 cancelled 标志符，初始值为 false，并对外不可见。</li>
+<li>当页面可见并且动画帧请求callback回调函数列表不为空时，浏览器会定期将这些回调函数加入到浏览器 UI 线程的队列中（由系统来决定回调函数的执行时机）。</li>
+</ul>
+<blockquote>
+<p>当浏览器执行这些 callback 回调函数的时候，会判断每个元组的 callback 的cancelled标志符，只有 cancelled 为 false 时，才执行callback回调函数(若被 <code>cancelAnimationFrame()</code> 取消了，对应 callback 的 cancelled 标识符会被置为 true)。</p>
+</blockquote>
+<h2 id="特点"><a class="header" href="#特点">特点：</a></h2>
+<h3 id="1-定时动画存在的问题"><a class="header" href="#1-定时动画存在的问题">1. 定时动画存在的问题</a></h3>
+<ul>
+<li>setTimeout / setInterval 不能保证回调的运行时刻：计时器只能保证何时将回调添加至浏览器的回调队列(宏任务)，不能保证回调队列的运行时间，假设主线程被其他任务占用，那么回调队列中的动画任务就会被阻塞，而不会按照原定的时间间隔刷新绘制。</li>
+<li>setTimeout / setInterval 计时不精确：不同浏览器的计时器精度都存在误差，此外浏览器会对切换到后台或不活跃标签页中的计时器进行限流，导致计时器计时误差。</li>
+<li>setTimeout / setInterval 在后台运行增大 CPU 开销：当标签页处于非活跃状态，计时器仍在执行计时工作，同时刷新动画效果，增大了 CPU 开销。(现阶段浏览器对此做了优化，如 FireFox/Chrome 浏览器对定时器做了优化：页面闲置时，如果时间间隔小于 1000ms，则停止定时器，与requestAnimationFrame行为类似。如果时间间隔&gt;=1000ms，定时器依然在后台执行)</li>
+</ul>
+<h3 id="2-requestanimationframe-动画刷新机制的特点"><a class="header" href="#2-requestanimationframe-动画刷新机制的特点">2. requestAnimationFrame 动画刷新机制的特点</a></h3>
+<ul>
+<li>requestAnimationFrame 采用系统时间间隔来执行回调函数，保持最佳绘制效率，不会因为间隔时间的过短，造成过度绘制，增加页面开销，也不会因为间隔时间过长，造成动画卡顿，不流程，影响页面美观。</li>
+</ul>
+<blockquote>
+<p>requestAnimationFrame的基本思想：让页面重绘的频率和刷新频率保持同步，即每 1000ms / 60 = 16.7ms执行一次。由于每次执行动画帧回调是由浏览器重回频率决定的，因此不需要像 setTimeout 那样传递时间间隔，而是浏览器通过系统获取并使用显示器刷新频率。</p>
+</blockquote>
+<ul>
+<li>requestAnimationFrame 自带节流功能，例如在某些高频事件（resize，scroll 等）中，requestAnimationFrame 依据系统时间间隔来调用回调，可以防止在一个刷新间隔内发生多次函数执行。</li>
+<li>requestAnimationFrame 延时效果是精确的，即在每次页面重绘前必会清空一次动画帧回调队列。(setTimeout 任务被放进异步队列中，只有当主线程上的任务执行完以后，才会去检查该队列的任务是否需要开始执行，造成时间延时)。</li>
+<li>requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中完成。</li>
+<li>setTimeout 的执行只是在内存中对图像属性进行改变，这个改变必须要等到下次浏览器重绘时才会被更新到屏幕上。如果和屏幕刷新步调不一致，就可能导致中间某些帧的操作被跨越过去，直接更新下下一帧的图像，即掉帧。使用 requestAnimationFrame 执行动画，最大优势是能保证动画帧回调队列中的回调函数在屏幕每一次刷新前都被执行一次，然后将结果一起重绘到浏览器页面，这样就不会引起丢帧，动画也就不会卡顿。</li>
+<li>requestAnimationFrame() 只有当标签页处于活跃状态是才会执行，当页面隐藏或最小化时，会被暂停，页面显示，会继续执行，节省了 CPU 开销。早期浏览器会对切换至后台或不活跃的标签页中的计时器执行限流，导致计时器时间不精确，此外计时器在后台仍会进行计时工作，执行动画任务，此时刷新动画是完全没有意义的。</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../JS&amp;TS/JS内存管理和GC.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../NodeJS/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../JS&amp;TS/JS内存管理和GC.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../NodeJS/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

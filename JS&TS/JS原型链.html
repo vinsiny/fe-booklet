@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JS原型链 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html" class="active"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/JS&amp;TS/JS原型链.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="js-面向对象prototype-和-__proto__"><a class="header" href="#js-面向对象prototype-和-__proto__">JS 面向对象、prototype 和 __proto__</a></h1>
+<h2 id="prototype-和-__proto__-由来"><a class="header" href="#prototype-和-__proto__-由来">prototype 和 __proto__ 由来</a></h2>
+<ol>
+<li>没有class 关键字，使用函数代替</li>
+</ol>
+<p>早期的 js 并没有 class 关键字，所以使用 js 函数替代，实现面向对象的能力；</p>
+<pre><code class="language-js">// 构造函数
+function Puppy() {}
+
+// 实例化
+var myPuppy = new Puppy();
+</code></pre>
+<p>但这样的设计缺少了构造函数，无法在构造函数中对实例做特殊配置，如上面例子中无法设置 <code>myPuppy</code> 的年龄；</p>
+<h2 id="函数本身就是构造函数"><a class="header" href="#函数本身就是构造函数">函数本身就是构造函数</a></h2>
+<p>当做类用的函数本身也是一个函数，而且他就是默认的构造函数。我们想让Puppy函数能够设置实例的年龄，只要让他接收参数就行了。</p>
+<pre><code class="language-js">function Puppy(age) {
+  this.puppyAge = age;
+}
+
+// 实例化时可以传年龄参数了
+const myPuppy = new Puppy(2);
+</code></pre>
+<p>注意上面代码的this，被作为类使用的函数里面this总是指向实例化对象，也就是myPuppy。这么设计的目的就是让使用者可以通过构造函数给实例对象设置属性，这时候console出来看myPuppy.puppyAge就是2。</p>
+<pre><code class="language-js">console.log(myPuppy.puppyAge);   // 输出是 2
+</code></pre>
+<h2 id="实例方法用prototype"><a class="header" href="#实例方法用prototype">实例方法用prototype</a></h2>
+<p>上面我们实现了类和构造函数，但是类方法呢？Java版小狗还可以“汪汪汪”叫呢，JS版怎么办呢？JS给出的解决方案是给方法添加一个<strong>prototype</strong>属性，挂载在这上面的方法，在实例化的时候会给到实例对象。我们想要<code>myPuppy</code>能说话，就需要往<code>Puppy.prototype</code>添加说话的方法。</p>
+<pre><code class="language-js">Puppy.prototype.say = function() {
+  console.log(&quot;汪汪汪&quot;);
+}
+</code></pre>
+<h2 id="实例方法查找用__proto__"><a class="header" href="#实例方法查找用__proto__">实例方法查找用__proto__</a></h2>
+<p>实例对象上并不存在构造函数上的方法，在查找对应的方法的时候，就需要使用 <code>__proto__</code>，当访问一个对象上没有的属性时，比如 <code>myPuppy.say</code>，对象会去<code>__proto__</code>查找。<code>__proto__</code>的值就等于父类的<code>prototype</code>, <code>myPuppy.__proto__</code>指向了<code>Puppy.prototype</code></p>
+<pre><code class="language-js">myPuppy.__proto__ === Puppy.prototype
+</code></pre>
+<p>如果你访问的属性在<code>Puppy.prototype</code>也不存在，那又会继续往<code>Puppy.prototype.__proto__</code>上找，这时候其实就找到了<code>Object.prototype</code>了，<code>Object.prototype</code>再往上找就没有了，也就是 <code>null</code>，这其实就是<strong>原型链</strong>。</p>
+<h2 id="constructor"><a class="header" href="#constructor">constructor</a></h2>
+<p>我们说的<code>constructor</code>一般指类的<code>prototype.constructor</code>。<code>prototype.constructor</code>是<code>prototype</code>上的一个保留属性，这个属性就指向<strong>类函数本身</strong>，用于指示当前类的<strong>构造函数</strong>。</p>
+<pre><code class="language-js">Puppy.prototype.constructor = Puppy
+</code></pre>
+<p>既然<code>prototype.constructor</code>是指向构造函数的一个指针，那我们是不是可以通过它来修改构造函数呢？我们来试试就知道了。我们先修改下这个函数，然后新建一个实例看看效果：</p>
+<pre><code class="language-js">function Puppy(age) {
+  this.puppyAge = age;
+}
+
+Puppy.prototype.constructor = function myConstructor(age) {
+  this.puppyAge = age + 1;
+}
+
+const myPuppy2 = new Puppy(2);
+console.log(myPuppy2.puppyAge);    // 输出是2
+</code></pre>
+<p>通过下面一张图来描述三者的关系：
+<img src="./JS%E5%8E%9F%E5%9E%8B%E9%93%BE/1.png" alt="1" /></p>
+<h2 id="实现一个new"><a class="header" href="#实现一个new">实现一个new</a></h2>
+<p>结合上面讲的， new其实就是生成了一个对象，这个对象能够访问类的原型，知道了原理，我们就可以自己实现一个new了。</p>
+<pre><code class="language-js">function myNew(func, ...args) {
+  const obj = {};     // 1. 新建一个空对象
+  const result = func.call(obj, ...args);  // 2. 执行构造函数
+  obj.__proto__ = func.prototype;    // 3.设置原型链
+
+  // 4. 注意如果原构造函数有Object类型的返回值，包括Functoin, Array, Date, RegExg, Error
+  // 那么应该返回这个返回值
+  const isObject = typeof result === 'object' &amp;&amp; result !== null;
+  const isFunction = typeof result === 'function';
+  if(isObject || isFunction) {
+    return result;
+  }
+
+  // 原构造函数没有Object类型的返回值，返回我们的新对象
+  return obj;
+}
+
+function Puppy(age) {
+  this.puppyAge = age;
+}
+
+Puppy.prototype.say = function() {
+  console.log(&quot;汪汪汪&quot;);
+}
+
+const myPuppy3 = myNew(Puppy, 2);
+
+console.log(myPuppy3.puppyAge);  // 2
+console.log(myPuppy3.say());     // 汪汪汪
+</code></pre>
+<h2 id="实现一个instanceof"><a class="header" href="#实现一个instanceof">实现一个instanceof</a></h2>
+<p><code>instanceof </code>就是检查一个对象是不是某个类的实例，换句话说就是检查一个对象的的原型链上有没有这个类的<code>prototype</code>，知道了这个我们就可以自己实现一个了：</p>
+<pre><code class="language-js">function myInstanceof(targetObj, targetClass) {
+  // 参数检查
+  if(!targetObj || !targetClass || !targetObj.__proto__ || !targetClass.prototype){
+    return false;
+  }
+
+  let current = targetObj;
+
+  while(current) {   // 一直往原型链上面找
+    if(current.__proto__ === targetClass.prototype) {
+      return true;    // 找到了返回true
+    }
+
+    current = current.__proto__;
+  }
+
+  return false;     // 没找到返回false
+}
+
+// 用我们前面的继承实验下
+function Parent() {}
+function Child() {}
+
+Child.prototype.__proto__ = Parent.prototype;
+
+const obj = new Child();
+console.log(myInstanceof(obj, Child));   // true
+console.log(myInstanceof(obj, Parent));   // true
+console.log(myInstanceof({}, Parent));   // false
+</code></pre>
+<h2 id="总结"><a class="header" href="#总结">总结</a></h2>
+<ol>
+<li>JS中的函数可以作为函数使用，也可以作为类使用</li>
+<li>作为类使用的函数实例化时需要使用new</li>
+<li>为了让函数具有类的功能，函数都具有<code>prototype</code>属性。</li>
+<li>为了让实例化出来的对象能够访问到<code>prototype</code>上的属性和方法，实例对象的<code>__proto__</code>指向了类的<code>prototype</code>。所以<code>prototype</code>是函数的属性，不是对象的。对象拥有的是<code>__proto__</code>，是用来查找<code>prototype</code>的。</li>
+<li><code>prototype.constructor</code> 指向的是构造函数，也就是类函数本身。改变这个指针并不能改变构造函数。</li>
+<li>对象本身并没有<code>constructor</code>属性，你访问到的是原型链上的<code>prototype.constructor</code>。</li>
+<li>函数本身也是对象，也具有<code>__proto__</code>，他指向的是JS内置对象<code>Function</code>的原型<code>Function.prototype</code>。所以你才能调用<code>func.call</code>,<code>func.apply</code>这些方法，你调用的其实是<code>Function.prototype.call</code>和<code>Function.prototype.apply</code>。</li>
+<li><code>prototype</code>本身也是对象，所以他也有<code>__proto__</code>，指向了他父级的<code>prototype</code>。<code>__proto__</code>和<code>prototype</code>的这种链式指向构成了JS的原型链。原型链的最终指向是Object的原型。Object上面原型链是<code>null</code>，即<code>Object.prototype.__proto__ === null</code>。</li>
+<li>另外 <code>Function.__proto__ === Function.prototype</code>，这是因为JS中所有函数的原型都是<code>Function.prototype</code>，也就是说所有函数都是<code>Function</code>的实例。<code>Function</code>本身也是可以作为函数使用的––<code>Function()</code>，所以他也是<code>Function</code>的一个实例。类似的还有Object，Array等，他们也可以作为函数使用:<code>Object()</code>, <code>Array()</code>。所以他们本身的原型也是<code>Function.prototype</code>，即<code>Object.__proto__ === Function.prototype</code>。换句话说，这些可以new的内置对象其实都是一个类，就像我们的Puppy类一样。</li>
+<li>ES6的class其实是函数类的一种语法糖，书写起来更清晰，但原理是一样的。</li>
+</ol>
+<h3 id="参考文档"><a class="header" href="#参考文档">参考文档</a></h3>
+<ul>
+<li><a href="https://juejin.cn/post/6844904069887164423#heading-7">轻松理解JS中的面向对象，顺便搞懂prototype和__proto__</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../JS&amp;TS/Promise实现.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../JS&amp;TS/JS内存管理和GC.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../JS&amp;TS/Promise实现.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../JS&amp;TS/JS内存管理和GC.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

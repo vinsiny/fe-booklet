@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>多屏幕尺寸适配 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html" class="active"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/CSS世界/多屏幕尺寸适配.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="移动端适配要点"><a class="header" href="#移动端适配要点">移动端适配要点</a></h2>
+<ul>
+<li>媒体查询，边界断点的规则设定（Media queries &amp;&amp; break point）</li>
+<li>内容的可伸缩性效果（Flexibel visuals）</li>
+<li>流式网格布局(Fluid grids)</li>
+<li>主要内容呈现及图片的高质量(Main content and high quality)</li>
+</ul>
+<h2 id="移动端屏幕适配方案"><a class="header" href="#移动端屏幕适配方案">移动端屏幕适配方案</a></h2>
+<p>通常而言，设计师只会给出单一分辨率下的设计稿，而我们要做的，就是以这个设计稿为基准，去适配所有不同大小的移动端设备。</p>
+<h3 id="1-一些基础概念"><a class="header" href="#1-一些基础概念">1. 一些基础概念</a></h3>
+<ul>
+<li>设备独立像素
+以 iPhone6/7/8为例，这里我们打开 Chrome 开发者工具：</li>
+</ul>
+<p><img src="./RWD/rwd1.jpg" alt="rwd1" />
+这里的 <code>375 * 667</code> 表示的是什么呢，表示的是<strong>设备独立像素（DIP）</strong>，也可以理解为 <strong>CSS 像素</strong>，也称为<strong>逻辑像素</strong>：</p>
+<p><strong>设备独立像素 = CSS 像素 = 逻辑像素</strong></p>
+<ul>
+<li>物理像素</li>
+</ul>
+<p>OK，那么，什么又是物理像素呢。我们到电商网站购买手机，都会看一看手机的参数，以 JD 上的 iPhone7 为例：
+<img src="./RWD/rwd2.png" alt="rwd2" /></p>
+<p>可以看到，iPhone7 的分辨率是 <code>1334 x 750</code>，这里描述的就是<strong>屏幕实际的物理像素</strong>。
+<strong>物理像素</strong>，又称为<strong>设备像素</strong>。显示屏是由一个个物理像素点组成的，<code>1334 x 750</code> 表示手机分别在垂直和水平上所具有的像素点数。通过控制每个像素点的颜色，就可以使屏幕显示出不同的图像，屏幕从工厂出来那天起，它上面的物理像素点就固定不变了，单位为<code>pt</code>。
+<strong>设备像素 = 物理像素</strong></p>
+<ul>
+<li>DPR（Device Pixel Ratio） 设备像素比</li>
+</ul>
+<p>OK，有了上面两个概念，就可以顺理成章引出下一个概念：<strong>DPR（Device Pixel Ratio） 设备像素比</strong>，这个与我们通常说的**视网膜屏（多倍屏，Retina屏）**有关。</p>
+<p>设备像素比描述的是未缩放状态下，物理像素和设备独立像素的初始比例关系。</p>
+<p>简单的计算公式：</p>
+<p><strong>DPR = 物理像素 / 设备独立像素</strong></p>
+<p>我们套用一下上面 iPhone7 的数据（取设备的物理像素宽度与设备独立像素宽度进行计算）：</p>
+<p>iPhone7’s DPR = iPhone7’s 物理像素宽度 / iPhone7’s 设备独立像素宽度 = 2</p>
+<blockquote>
+<p>750 / 375 = 2 或者是 1334 / 667 = 2</p>
+</blockquote>
+<p>可以得到 iPhone7 的 dpr 为 2。也就是我们常说的视网膜屏幕。</p>
+<blockquote>
+<p>视网膜（Retina）屏幕是苹果公司“发明“的一个营销术语。 苹果公司将 dpr &gt; 1 的屏幕称为视网膜屏幕。</p>
+</blockquote>
+<p>在视网膜屏幕中，以 dpr = 2 为例，把 4(2x2) 个像素当 1 个像素使用，这样让屏幕看起来更精致，但是元素的大小本身却不会改变：
+<img src="./RWD/rwd3.png" alt="rwd" /></p>
+<p>OK，到这里我们就完成了一个小的里程碑。我们通常说的H5手机适配也就是指的这两个维度：</p>
+<ol>
+<li>适配不同屏幕大小，也就是适配不同屏幕下的 CSS 像素</li>
+<li>适配不同像素密度，也就是适配不同屏幕下 dpr 不一致导致的一些问题</li>
+</ol>
+<h3 id="2-适配不同屏幕大小"><a class="header" href="#2-适配不同屏幕大小">2. 适配不同屏幕大小</a></h3>
+<p>适配不同屏幕大小，也就是适配不同屏幕下的 CSS 像素。最早移动端屏幕 CSS 像素适配方案是<strong>CSS媒体查询</strong>。但是无法做到高保真接近 100% 的还原。
+适配不同屏幕大小其实只需要遵循一条原则，确保页面元素大小的与屏幕大小保持一定比例。也就是：按比例还原设计稿</p>
+<p>以页面宽度为基准的话，那么，</p>
+<ul>
+<li>元素的宽度为：<code>209/375 = 55.73%</code></li>
+<li>元素的高度为：<code>80/375 = 21.33%</code></li>
+<li>元素的上左右边距依次计算…</li>
+</ul>
+<p>这样，无论屏幕的 CSS 像素宽度是 320px 还是 375px 还是 414px，按照等量百分比还原出来的界面总是正确的。</p>
+<p>然而，理想很丰满，现实很骨感。实现上述百分比方案的核心需要一个全局通用的基准单位，让所有百分比展示以它为基准，但是在 CSS 中，根据<a href="https://www.w3.org/TR/css-values-4/#percentages">CSS Values and Units Module Level 4</a>的定义：</p>
+<blockquote>
+<p>百分比值总要相对于另一个量，比如长度。每个允许使用百分比值的属性，同时也要定义百分比值参照的那个量。这个量可以是相同元素的另一个属性的值，也可以是祖先元素的某个属性的值，甚至是格式化上下文的一个度量（比如包含块的宽度）。</p>
+</blockquote>
+<p>具体来说：</p>
+<ul>
+<li>宽度（width）、间距（maring/padding）支持百分比值，但默认的相对参考值是包含块的宽度；</li>
+<li>高度（height）百分比的大小是相对其父级元素高的大小；</li>
+<li>边框（border）<strong>不支持</strong>百分值；</li>
+<li>边框圆角半径（border-radius）支持百分比值，但水平方向相对参考值是盒子的宽度，垂直方向相对参考值是盒子的高度；</li>
+<li>文本大小（font-size）支持百分比值，但相对参考值是<strong>父元素的font-size</strong>的值；</li>
+<li>盒阴影（box-shadow）和文本阴影（text-shadow）<strong>不支持</strong>百分比值；</li>
+</ul>
+<p>首先，支持百分比单位的度量属性有其各自的参照基准，其次并非所有度量属性都支持百分比单位。所以我们需要另辟蹊径。</p>
+<h4 id="rem-适配方案"><a class="header" href="#rem-适配方案">rem 适配方案</a></h4>
+<p>在 vw 方案出来之前，最被大众接受的就是使用 rem 进行适配的方案，因为 rem 满足上面说的，可以是一个全局性的基准单位。</p>
+<blockquote>
+<p>rem（font size of the root element），在 CSS Values and Units Module Level 3中的定义就是， 根据网页的根元素来设置字体大小，和 em（font size of the element）的区别是，em 是根据其父元素的字体大小来设置，而 rem 是根据网页的跟元素（html）来设置字体大小。</p>
+</blockquote>
+<h4 id="flexible"><a class="header" href="#flexible">flexible</a></h4>
+<p>基于此，淘宝早年推行的一套以 rem 为基准的适配方案：<a href="https://github.com/amfe/lib-flexible">lib-flexible</a>。其核心做法在于：</p>
+<ul>
+<li><del>根据设备的 dpr 动态改写 <meta> 标签，设置 viewport 的缩放</del></li>
+<li><del>给 <code>&lt;html&gt;</code> 元素添加 <code>data-dpr</code> 属性，并且动态改写 <code>data-dpr</code> 的值</del></li>
+<li>根据 <code>document.documentElement.clientWidth</code> 动态修改 <code>&lt;html&gt;</code> 的 font-size ，页面其他元素使用 rem 作为长度单位进行布局，从而实现页面的等比缩放</li>
+</ul>
+<blockquote>
+<p>关于头两点，其实现在的 <code>lib-flexible</code> 库已经不这样做了，不再去缩放 Viewport，字体大小的设定也直接使用了 rem</p>
+</blockquote>
+<h4 id="hotcss"><a class="header" href="#hotcss">hotcss</a></h4>
+<p><a href="https://github.com/imochen/hotcss">hotcss</a> 不是一个库，也不是一个框架。它是一个移动端布局开发解决方案。使用 hotcss 可以让移动端布局开发更容易。本质的思想与 flexible 完全一致。</p>
+<h4 id="对于-rem-方案的一些总结"><a class="header" href="#对于-rem-方案的一些总结">对于 rem 方案的一些总结</a></h4>
+<p>使用 flexible/hotcss 作为屏幕宽度适配解决方案，是存在一些问题的：</p>
+<ul>
+<li>动态修改 Viewport 存在一定的风险的，譬如通过 Viewport 改变了页面的缩放之后，获取到的 innerWidth/innerHeight 也会随之发生变化，如果业务逻辑有获取此类高宽进行其他计算的，可能会导致意想不到的错误；</li>
+</ul>
+<blockquote>
+<p>到今天，其实存在很多在 flexible 基础上演化而来的各种 rem 解决方案，有的不会对 Viewport 进行缩放处理，自行处理 1px 边框问题。</p>
+</blockquote>
+<ul>
+<li>flexible/hotcss 都并非纯 CSS 方案，需要引入一定的 Javascript 代码</li>
+<li>rem 的设计初衷并非是用于解决此类问题，用 rem 进行页面的宽度适配多少有一种 hack 的感觉</li>
+<li>存在一定的兼容性问题，对于安卓 4.4 以下版本系统不支持 viewport 缩放（当然，flexible 处理 Android 系列时，始终认为其 dpr 为 1，没有进行 viewport 缩放）</li>
+</ul>
+<h3 id="vw-适配方案"><a class="header" href="#vw-适配方案">vw 适配方案</a></h3>
+<p>严格来说，使用 rem 进行页面适配其实是一种 hack 手段，rem 单位的初衷本身并不是用来进行移动端页面宽度适配的。</p>
+<p>到了今天，有了一种更好的替代方案，使用 vw 进行适配 。</p>
+<p>百分比适配方案的核心需要一个全局通用的基准单位，rem 是不错，但是需要借助 Javascript 进行动态修改根元素的 font-size，而 vw/vh（vmax/vmin） 的出现则很好弥补 rem 需要 JS 辅助的缺点。</p>
+<p>根据 CSS Values and Units Module Level 4：<code>vw</code> 等于初始包含块（html元素）宽度的1%，也就是</p>
+<ul>
+<li><code>1vw</code> 等于 <code>window.innerWidth</code> 的数值的 1%</li>
+<li><code>1vh</code> 等于 <code>window.innerHeight</code> 的数值的 1%</li>
+</ul>
+<p><img src="./RWD/rwd4.png" alt="rwd4" /></p>
+<p>再以上面设计稿图的元素为例，那么，</p>
+<ul>
+<li>元素的宽度为：209/375 = 55.73% = 55.73vw</li>
+<li>元素的高度为：80/375 = 21.33% = 21.33vw</li>
+<li>元素的上左右边距依次计算…</li>
+</ul>
+<p>根据相关的测试，可以使用 vw 进行长度单位的有：</p>
+<ul>
+<li>容器大小适配，可以使用 vw</li>
+<li>文本大小的适配，可以使用 vw</li>
+<li>大于 1px 的边框、圆角、阴影都可以使用 vw</li>
+<li>内距和外距，可以使用 vw</li>
+</ul>
+<p>简单的一个页面，看看效果，完全是等比例缩放的效果：</p>
+<p><img src="./RWD/rwd5.gif" alt="rwd5" /></p>
+<p><a href="https://codepen.io/Chokcoco/pen/oNvWVYq?editors=0010">CodePen Demo（移动端打开）：使用 vw 进行页面适配</a></p>
+<h3 id="自动转换插件"><a class="header" href="#自动转换插件">自动转换插件</a></h3>
+<p>当我们使用 rem 作为长度单位的时，通常会有借助 Sass/Less 实现一个转换函数，像是这样：</p>
+<pre><code class="language-less">// 假设设计稿的宽度是 375px，假设取设计稿宽度下 1rem = 100px
+$baseFontSize: 100;
+
+@function px2rem($px) {
+	@return $px / $baseFontSize * 1rem;
+}
+</code></pre>
+<p>同理，在 vw 方案下，我们只需要去改写这个方法：</p>
+<pre><code class="language-less">// 假设设计稿的宽度是 375px
+@function px2vw($px) {
+	@return $px / 375 * 100vw;
+}
+</code></pre>
+<p>当然，我们还可以借助一些插件包去实现这个自动转换，提高效率，譬如 <a href="https://www.npmjs.com/package/postcss-px-to-viewport">postcss-px-to-viewport</a></p>
+<h3 id="vw-polyfill"><a class="header" href="#vw-polyfill">vw polyfill</a></h3>
+<p>vw 现在毕竟还是存在兼容问题的，看看兼容性：
+<img src="./RWD/rwd6.png" alt="rwd6" />
+其实已经覆盖了绝大部分设备，那么如果业务使用了且又真的出现了兼容问题，应该怎么处理呢？有两种方式可以进行降级处理：</p>
+<ul>
+<li>CSS Houdini：通过CSS Houdini针对vw做处理，调用CSS Typed OM Level1 提供的 CSSUnitValue API。</li>
+<li>CSS Polyfill：通过相应的Polyfill做相应的处理，目前针对于 vw 单位的 Polyfill 主要有：vminpoly、Viewport Units Buggyfill、vunits.js和 Modernizr</li>
+</ul>
+<h3 id="对于-vw-方案的一些总结"><a class="header" href="#对于-vw-方案的一些总结">对于 vw 方案的一些总结</a></h3>
+<p>vw 确实看上去很不错，但是也是存在它的一些问题：</p>
+<ul>
+<li>也没能很好的解决 1px 边框在高清屏下的显示问题，需要自行处理</li>
+<li>由于 vw 方案是完全的等比缩放，在完全等比还原设计稿的同时带来的一个问题是无法很好的限定一个最大最小宽度值，由于 rem 方案是借助 Javascript 的，所以这一点 rem 比 vw 会更加的灵活</li>
+</ul>
+<p>当然，两个方案现阶段其实都可以使用甚至一起搭配使用，更多详情可以读读：</p>
+<ul>
+<li><a href="https://juejin.cn/post/6844903552578486285">再聊移动端页面的适配</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg4MTYwMzY1Mw==&amp;mid=2247496079&amp;idx=1&amp;sn=04bfe9d98709f38540f71f37651707a8&amp;source=41#wechat_redirect">H5必知必会之像素级还原设计稿</a></li>
+<li><a href="https://www.smashingmagazine.com/2016/05/fluid-typography/">Responsive And Fluid Typography With vh And vw Units</a></li>
+<li><a href="https://www.cnblogs.com/wengxuesong/archive/2016/05/16/5497653.html">使用VH和VW实现真正的流体排版</a></li>
+</ul>
+<h3 id="参考文章"><a class="header" href="#参考文章">参考文章：</a></h3>
+<ul>
+<li><a href="https://juejin.cn/post/6844903935568789517">前端基础知识概述 – 移动端开发的屏幕、图像、字体与布局的兼容适配</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../CSS世界/CSS垂直居中.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../something/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../CSS世界/CSS垂直居中.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../something/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

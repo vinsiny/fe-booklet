@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SplitChunks - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html" class="active"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/打包编译/SplitChunks.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="一前言"><a class="header" href="#一前言">一、前言</a></h2>
+<p>在默认的配置情况下，我们知道，webpack 会把所有代码打包到一个 chunk 中，举个例子当你的一个单页面应用很大的时候，你可能就需要将每个路由拆分到一个 chunk 中，这样才方便我们实现按需加载。</p>
+<p>代码分离是 webpack 中最引人注目的特性之一。此特性能够把代码分离到不同的 bundle 中，然后可以按需加载或并行加载这些文件。代码分离可以用于获取更小的 bundle，以及控制资源加载优先级，如果使用合理，会极大影响加载时间。</p>
+<p><img src="./SplitChunks/SplitChunks-1.png" alt="1" /></p>
+<h2 id="二关于代码分割"><a class="header" href="#二关于代码分割">二、关于代码分割</a></h2>
+<p>接下来我们会分别分析不同的代码分隔方式带来的打包差异，首先我们的项目假设有这两个简单的文件👇
+index.js</p>
+<pre><code class="language-js">import { mul } from './test'
+import $ from 'jquery'
+
+console.log($)
+console.log(mul(2, 3))
+</code></pre>
+<p>test.js</p>
+<pre><code class="language-js">import $ from 'jquery'
+
+console.log($)
+
+function mul(a, b) {
+    return a * b
+}
+
+export { mul }
+</code></pre>
+<p>可以看到现在他们二者都依赖于 jquery 这个库，并且相互之间也会有依赖。
+<img src="./SplitChunks/SplitChunks-2.png" alt="2" /></p>
+<p>当我们在默认配置的情况下进行打包，结果是这样的👇，会把所有内容打包进一个 main bundle 内（324kb）
+<img src="./SplitChunks/SplitChunks-3.png" alt="3" />
+<img src="./SplitChunks/SplitChunks-4.png" alt="4" /></p>
+<p>那么我们如何用最直接的方式从这个 bundle 中分离出其他模块呢？</p>
+<h3 id="1-多入口"><a class="header" href="#1-多入口">1. 多入口</a></h3>
+<p>webpack 配置中的 <em>entry</em> ，可以设置为多个，也就是说我们可以分别将 index 和 test 文件分别作为入口：</p>
+<pre><code class="language-js">// entry: './src/index.js', 原来的单入口
+/** 现在分别将它们作为入口 */
+entry:{
+  index:'./src/index.js',
+  test:'./src/test.js'
+},
+output: {
+  filename: '[name].[hash:8].js',
+  path: path.resolve(__dirname, './dist'),
+},
+</code></pre>
+<p>这样让我们看一下这样打包后的结果：
+<img src="./SplitChunks/SplitChunks-5.png" alt="5" /></p>
+<p>确实打包出了两个文件！但是为什么两个文件都有 <em>320+kb</em> 呢？不是说好拆分获取更小的 bundle ？这是因为由于二者都引入了 jquery 而 webpack 从两次入口进行打包分析的时候会每次都将依赖的模块分别打包进去👇
+<img src="./SplitChunks/SplitChunks-6.png" alt="6" /></p>
+<p>没错，这种配置的方式确实会带来一些<em>隐患</em>以及不便：</p>
+<ul>
+<li><strong>如果入口 chunk 之间包含一些重复的模块，那些重复模块都会被引入到各个 bundle 中。</strong></li>
+<li><strong>这种方法不够灵活，并且不能动态地将核心应用程序逻辑中的代码拆分出来。</strong></li>
+</ul>
+<p>那么有没有方式可以既可以将共同依赖的模块进行打包分离，又不用进行繁琐的手动配置入口的方式呢？那必然是有的。</p>
+<h3 id="2-splitchunksplugin"><a class="header" href="#2-splitchunksplugin">2. SplitChunksPlugin</a></h3>
+<p><strong>SplitChunks</strong> 是 webpack4 开始<em>自带的开箱即用</em>的一个插件，他可以将满足规则的 chunk 进行分离，也可以自定义配置。在 webpack4 中用它取代了之前用来解决重复依赖的 <strong>CommonsChunkPlugin</strong> 。
+让我们在我们的 webpack 配置中加上一些配置：</p>
+<pre><code class="language-js">entry: './src/index.js', // 这里我们改回单入口
+/** 加上如下设置 */
+optimization: {
+  splitChunks: {
+    chunks: 'all',
+  },
+},
+</code></pre>
+<p>打包后的结果如图：
+<img src="./SplitChunks/SplitChunks-7.png" alt="7" /></p>
+<p>可以看到很明显除了根据入口打包出的 main bundle 之外，还多出了一个名为 <em>vendors-node_modules_jquery_dist_jquery_js.xxxxx.js</em> ，显然这样我们将公用的 jquery 模块就提取出来了。
+接下来我们来探究一下 <em>SplitChunksPlugin</em> 。
+首先看下配置的默认值：</p>
+<pre><code class="language-javascript">splitChunks: {
+    // 表示选择哪些 chunks 进行分割，可选值有：async，initial 和 all
+    chunks: &quot;async&quot;,
+    // 表示新分离出的 chunk 必须大于等于 minSize，20000，约 20kb。
+    minSize: 20000,
+    // 通过确保拆分后剩余的最小 chunk 体积超过限制来避免大小为零的模块,仅在剩余单个 chunk 时生效
+    minRemainingSize: 0,
+    // 表示一个模块至少应被 minChunks 个 chunk 所包含才能分割。默认为 1。
+    minChunks: 1,
+    // 表示按需加载文件时，并行请求的最大数目。
+    maxAsyncRequests: 30,
+    // 表示加载入口文件时，并行请求的最大数目。
+    maxInitialRequests: 30,
+    // 强制执行拆分的体积阈值和其他限制（minRemainingSize，maxAsyncRequests，maxInitialRequests）将被忽略
+    enforceSizeThreshold: 50000,
+    // cacheGroups 下可以可以配置多个组，每个组根据 test 设置条件，符合 test 条件的模块，就分配到该组。模块可以被多个组引用，但最终会根据 priority 来决定打包到哪个组中。默认将所有来自 node_modules 目录的模块打包至 vendors 组，将两个以上的 chunk 所共享的模块打包至 default 组。
+    cacheGroups: {
+        defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            // 一个模块可以属于多个缓存组。优化将优先考虑具有更高 priority（优先级）的缓存组。
+            priority: -10,
+            // 如果当前 chunk 包含已从主 bundle 中拆分出的模块，则它将被重用
+            reuseExistingChunk: true,
+        },
+   		  default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+        }
+    }
+}
+</code></pre>
+<p>默认情况下，SplitChunks 只会对异步调用的模块进行分割（<em>chunks: “async”</em>），并且默认情况下处理的 chunk 至少要有 20kb ，过小的模块不会被包含进去。</p>
+<p>补充一下，默认值会根据 mode 的配置不同有所变化，具体参见<a href="https://github.com/webpack/webpack/blob/HEAD/lib/config/defaults.js">源码</a>👇：</p>
+<pre><code class="language-js">const { splitChunks } = optimization;
+if (splitChunks) {
+  A(splitChunks, &quot;defaultSizeTypes&quot;, () =&gt; [&quot;javascript&quot;, &quot;unknown&quot;]);
+  D(splitChunks, &quot;hidePathInfo&quot;, production);
+  D(splitChunks, &quot;chunks&quot;, &quot;async&quot;);
+  D(splitChunks, &quot;usedExports&quot;, optimization.usedExports === true);
+  D(splitChunks, &quot;minChunks&quot;, 1);
+  F(splitChunks, &quot;minSize&quot;, () =&gt; (production ? 20000 : 10000));
+  F(splitChunks, &quot;minRemainingSize&quot;, () =&gt; (development ? 0 : undefined));
+  F(splitChunks, &quot;enforceSizeThreshold&quot;, () =&gt; (production ? 50000 : 30000));
+  F(splitChunks, &quot;maxAsyncRequests&quot;, () =&gt; (production ? 30 : Infinity));
+  F(splitChunks, &quot;maxInitialRequests&quot;, () =&gt; (production ? 30 : Infinity));
+  D(splitChunks, &quot;automaticNameDelimiter&quot;, &quot;-&quot;);
+  const { cacheGroups } = splitChunks;
+  F(cacheGroups, &quot;default&quot;, () =&gt; ({
+    idHint: &quot;&quot;,
+    reuseExistingChunk: true,
+    minChunks: 2,
+    priority: -20
+  }));
+  F(cacheGroups, &quot;defaultVendors&quot;, () =&gt; ({
+    idHint: &quot;vendors&quot;,
+    reuseExistingChunk: true,
+    test: NODE_MODULES_REGEXP,
+    priority: -10
+  }));
+}
+</code></pre>
+<p><em>cacheGroups</em> <strong>缓存组</strong>是施行分割的重中之重，他可以使用来自 splitChunks.* 的<strong>任何选项</strong>，但是 <strong>test、priority 和 reuseExistingChunk</strong> 只能在缓存组级别上进行配置。默认配置中已经给我们提供了 Vendors 组和一个 defalut 组，<strong>Vendors</strong>组中使用 <code>test: /[\\/]node_modules[\\/]/</code> 匹配了 node_modules 中的所有符合规则的模块。</p>
+<blockquote>
+<p>Tip：当 webpack 处理文件路径时，它们始终包含 Unix 系统中的 / 和 Windows 系统中的 \。这就是为什么在 {cacheGroup}.test 字段中使用 [\\/] 来表示路径分隔符的原因。{cacheGroup}.test 中的 / 或 \ 会在跨平台使用时产生问题。</p>
+</blockquote>
+<p>综上的配置，我们便可以理解为什么我们在打包中会产生出名为 <code>vendors-node_modules_jquery_dist_jquery_js.db47cc72.js</code> 的文件了。如果你想要对名称进行自定义的话，也可以使用 <code>splitChunks.name</code> 属性（每个 cacheGroup 中都可以使用），这个属性支持使用三种形式：</p>
+<ol>
+<li><em>boolean = false</em> 设为 false 将保持 chunk 的相同名称，因此不会不必要地更改名称。这是生产环境下构建的建议值。</li>
+<li><em>function (module, chunks, cacheGroupKey) =&gt; string</em> 返回值要求是 string 类型，并且在 <em>chunks</em> 数组中每一个 chunk 都有 <em>chunk.name</em> 和 <em>chunk.hash</em> 属性，举个例子 👇</li>
+</ol>
+<pre><code class="language-js">name(module, chunks, cacheGroupKey) {
+  const moduleFileName = module
+  .identifier()
+  .split('/')
+  .reduceRight((item) =&gt; item);
+  const allChunksNames = chunks.map((item) =&gt; item.name).join('~');
+  return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
+},
+</code></pre>
+<ol start="3">
+<li><em>string</em> 指定字符串或始终返回相同字符串的函数会将所有常见模块和 vendor 合并为一个 chunk。这可能会导致<strong>更大的初始下载量并减慢页面加载速度</strong>。</li>
+</ol>
+<p>另外注意一下 <em>splitChunks.maxAsyncRequests</em> 和 <em>splitChunks.maxInitialRequests</em> 分别指的是<strong>按需加载时最大的并行请求数</strong>和<strong>页面初始渲染时候需要的最大并行请求数</strong>
+在我们的项目较大时，如果需要对某个依赖单独拆包的话，可以进行这样的配置：</p>
+<pre><code class="language-js">cacheGroups: {
+  react: {
+    name: 'react',
+      test: /[\\/]node_modules[\\/](react)/,
+      chunks: 'all',
+      priority: -5,
+  },
+ },
+</code></pre>
+<p>这样打包后就可以拆分指定的包：
+<img src="./SplitChunks/SplitChunks-8.png" alt="8" /></p>
+<p>更多配置详见<a href="https://webpack.js.org/plugins/split-chunks-plugin/">官网配置文档</a></p>
+<h3 id="3-动态-import"><a class="header" href="#3-动态-import">3. 动态 import</a></h3>
+<p>使用 <a href="">import()</a> 语法 来实现动态导入也是我们非常推荐的一种代码分割的方式，我们先来简单修改一下我们的 <code>index.js</code> ，再来看一下使用后打包的效果：</p>
+<pre><code class="language-js">// import { mul } from './test'
+import $ from 'jquery'
+
+import('./test').then(({ mul }) =&gt; {
+    console.log(mul(2,3))
+})
+
+console.log($)
+// console.log(mul(2, 3))
+</code></pre>
+<p>可以看到，通过 <em>import()</em> 语法导入的模块在打包时会自动单独进行打包</p>
+<p>值得注意的是，这种语法还有一种很方便的“动态引用”的方式，他可以加入一些适当的表达式，举个例子，假设我们需要加载适当的主题：</p>
+<pre><code class="language-js">const themeType = getUserTheme();
+import(`./themes/${themeType}`).then((module) =&gt; {
+  // do sth aboout theme
+});
+</code></pre>
+<p>这样我们就可以“动态”加载我们需要的异步模块，实现的原理主要在于两点：</p>
+<ol>
+<li>至少需要<strong>包含模块相关的路径信息</strong>，打包可以限定于一个特定的目录或文件集。</li>
+<li>根据路径信息 webpack 在打包时会把 ./themes  中的所有文件打包进新的 chunk 中，以便需要时使用到。</li>
+</ol>
+<h3 id="4-魔术注释"><a class="header" href="#4-魔术注释">4. 魔术注释</a></h3>
+<p>在上述的 <em>import()</em> 语法中，我们会发现打包自动生成的文件名并不是我们想要的，我们如何才能自己控制打包的名称呢？这里就要引入我们的魔术注释（Magic Comments）：</p>
+<pre><code class="language-js">import(/* webpackChunkName: &quot;my-chunk-name&quot; */'./test')
+</code></pre>
+<p>通过这样打包出来的文件：</p>
+<p>魔术注释不仅仅可以帮我们修改 chunk 名这么简单，他还可以实现譬如预加载等功能，这里举个例子：
+我们通过希望在点击按钮时才加载我们需要的模块功能，代码可以这样：</p>
+<pre><code class="language-js">// index.js
+document.querySelector('#btn').onclick = function () {
+  import('./test').then(({ mul }) =&gt; {
+    console.log(mul(2, 3));
+  });
+};
+</code></pre>
+<pre><code class="language-js">//test.js
+function mul(a, b) {
+  return a * b;
+}
+console.log('test 被加载了');
+export { mul };
+</code></pre>
+<p>可以看到，在我们点击按钮的同时确实加载了 <em>test.js</em> 的文件资源。但是如果这个模块是一个很大的模块，在点击时进行加载可能会造成长时间 loading 等用户体验不是很好的效果，这个时候我们可以使用我们的 <code>/* webpackPrefetch: true */</code> 方式进行<strong>预获取</strong>，来看下效果：</p>
+<pre><code class="language-js">// index,js
+
+document.querySelector('#btn').onclick = function () {
+  import(/* webpackPrefetch: true */'./test').then(({ mul }) =&gt; {
+    console.log(mul(2, 3));
+  });
+};
+</code></pre>
+<p>可以看到整个过程中，在画面初始加载的时候，<em>test.js</em> 的资源就已经被预先加载了，而在我们点击按钮时，会从 <em>(prefetch cache)</em> 中读取内容。这就是模块预获取的过程。另外我们还有 <em>/</em> webpackPreload: true <em>/</em> 的方式进行预加载。
+但是 prefetch 和 preload 听起来感觉差不多，实际上他们的加载时机等是完全不同的：</p>
+<ol>
+<li>preload chunk 会在父 chunk 加载时，以并行方式开始加载。prefetch chunk 会在父 chunk 加载结束后开始加载。</li>
+<li>preload chunk 具有中等优先级，并立即下载。prefetch chunk 在浏览器闲置时下载。</li>
+<li>preload chunk 会在父 chunk 中立即请求，用于当下时刻。prefetch chunk 会用于未来的某个时刻。</li>
+</ol>
+<h2 id="三结尾"><a class="header" href="#三结尾">三、结尾</a></h2>
+<p>在最初有工程化打包思想时，我们会考虑将多文件打包到一个文件内减少多次的资源请求，随着项目的越来越复杂，做项目优化时，我们发现项目加载越久用户体验就越不好，于是又可以通过代码分割的方式去减少页面初加载时的请求过大的资源体积。
+本文中仅简单介绍了常用的 webpack 代码分割方式，但是在实际的项目中进行性能优化时，往往会有更加严苛的要求，希望可以通过本文的介绍让大家快速了解上手代码分割的技巧与优势。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../打包编译/babel插件.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../网络协议/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../打包编译/babel插件.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../网络协议/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>es6 - 前端小册</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> 前端小册</a></li><li class="chapter-item expanded "><a href="../框架/index.html"><strong aria-hidden="true">2.</strong> 框架</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../框架/揭秘React-setState.html"><strong aria-hidden="true">2.1.</strong> 揭秘React-setState</a></li><li class="chapter-item expanded "><a href="../框架/setStateV17.html"><strong aria-hidden="true">2.2.</strong> 揭秘React-setState-fiber</a></li><li class="chapter-item expanded "><a href="../框架/双向绑定.html"><strong aria-hidden="true">2.3.</strong> 双向绑定</a></li><li class="chapter-item expanded "><a href="../框架/ssr和Nextjs.html"><strong aria-hidden="true">2.4.</strong> SSR和Nextjs</a></li></ol></li><li class="chapter-item expanded "><a href="../JS&TS/index.html"><strong aria-hidden="true">3.</strong> JS&amp;TS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../JS&TS/ESModule.html"><strong aria-hidden="true">3.1.</strong> ESModule</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS面试.html"><strong aria-hidden="true">3.2.</strong> TS面试</a></li><li class="chapter-item expanded "><a href="../JS&TS/TS体操.html"><strong aria-hidden="true">3.3.</strong> TS体操</a></li><li class="chapter-item expanded "><a href="../JS&TS/Promise实现.html"><strong aria-hidden="true">3.4.</strong> Promise实现</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS原型链.html"><strong aria-hidden="true">3.5.</strong> JS原型链</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS内存管理和GC.html"><strong aria-hidden="true">3.6.</strong> JS内存管理和GC</a></li><li class="chapter-item expanded "><a href="../JS&TS/JS八股.html"><strong aria-hidden="true">3.7.</strong> JS八股</a></li></ol></li><li class="chapter-item expanded "><a href="../NodeJS/index.html"><strong aria-hidden="true">4.</strong> NodeJS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../NodeJS/模块机制.html"><strong aria-hidden="true">4.1.</strong> 模块机制</a></li><li class="chapter-item expanded "><a href="../NodeJS/Buffer.html"><strong aria-hidden="true">4.2.</strong> Buffer</a></li></ol></li><li class="chapter-item expanded "><a href="../打包编译/index.html"><strong aria-hidden="true">5.</strong> 打包&amp;编译工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../打包编译/babel插件.html"><strong aria-hidden="true">5.1.</strong> babel插件</a></li><li class="chapter-item expanded "><a href="../打包编译/SplitChunks.html"><strong aria-hidden="true">5.2.</strong> SplitChunks</a></li></ol></li><li class="chapter-item expanded "><a href="../网络协议/index.html"><strong aria-hidden="true">6.</strong> 网络协议</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../网络协议/HTTP缓存.html"><strong aria-hidden="true">6.1.</strong> HTTP缓存</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTPS.html"><strong aria-hidden="true">6.2.</strong> HTTPS</a></li><li class="chapter-item expanded "><a href="../网络协议/HTTP∕1和HTTP∕2.html"><strong aria-hidden="true">6.3.</strong> HTTP/1和HTTP/2</a></li><li class="chapter-item expanded "><a href="../网络协议/网络协议基础.html"><strong aria-hidden="true">6.4.</strong> 网络协议基础</a></li></ol></li><li class="chapter-item expanded "><a href="../算法/index.html"><strong aria-hidden="true">7.</strong> 算法&amp;设计模式</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../算法/设计模式.html"><strong aria-hidden="true">7.1.</strong> 设计模式</a></li><li class="chapter-item expanded "><a href="../算法/控制反转和依赖注入.html"><strong aria-hidden="true">7.2.</strong> 控制反转和依赖注入</a></li></ol></li><li class="chapter-item expanded "><a href="../CSS世界/index.html"><strong aria-hidden="true">8.</strong> CSS世界</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../CSS世界/响应式页面开发.html"><strong aria-hidden="true">8.1.</strong> 响应式页面开发</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS基础.html"><strong aria-hidden="true">8.2.</strong> CSS基础</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS盒模型.html"><strong aria-hidden="true">8.3.</strong> CSS盒模型</a></li><li class="chapter-item expanded "><a href="../CSS世界/CSS垂直居中.html"><strong aria-hidden="true">8.4.</strong> CSS垂直居中</a></li><li class="chapter-item expanded "><a href="../CSS世界/多屏幕尺寸适配.html"><strong aria-hidden="true">8.5.</strong> 多屏幕尺寸适配</a></li></ol></li><li class="chapter-item expanded "><a href="../something/index.html"><strong aria-hidden="true">9.</strong> 杂七杂八</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../something/ES6.html" class="active"><strong aria-hidden="true">9.1.</strong> es6</a></li><li class="chapter-item expanded "><a href="../something/Flux&Redux&Mobx.html"><strong aria-hidden="true">9.2.</strong> flux、redux、mobx</a></li><li class="chapter-item expanded "><a href="../something/Mobx.html"><strong aria-hidden="true">9.3.</strong> Mobx</a></li><li class="chapter-item expanded "><a href="../something/Issue笔记链接.html"><strong aria-hidden="true">9.4.</strong> Issue笔记链接</a></li><li class="chapter-item expanded "><a href="../something/React.html"><strong aria-hidden="true">9.5.</strong> React</a></li><li class="chapter-item expanded "><a href="../something/任务.html"><strong aria-hidden="true">9.6.</strong> 任务</a></li><li class="chapter-item expanded "><a href="../something/前端安全.html"><strong aria-hidden="true">9.7.</strong> 前端安全</a></li><li class="chapter-item expanded "><a href="../something/待深入.html"><strong aria-hidden="true">9.8.</strong> 待深入</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">前端小册</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/vinsiny/fe-booklet/edit/main/src/something/ES6.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- ---
+tags: [11月的]
+title: ES6
+created: '2019-10-31T06:22:37.467Z'
+modified: '2019-11-11T02:22:25.008Z'
+--- -->
+<h1 id="es6"><a class="header" href="#es6">ES6</a></h1>
+<!-- more -->
+<h3 id="callapply-和-bind"><a class="header" href="#callapply-和-bind">call、apply 和 bind</a></h3>
+<ol>
+<li>call 的实现</li>
+</ol>
+<pre><code class="language-javascript">Function.prototype.myCall = function(context) {
+  if (typeof this !== 'function') {
+    throw new TypeError('Error')
+  }
+  context = context || window;
+  context.fn = this;
+  var result;
+  var args = [];
+  for(var i = 1, len = arguments.length; i &lt; len; i++) {
+    args.push('arguments[' + i + ']');
+  }
+
+  var result = eval('context.fn(' + args +')');
+  delete context.fn;
+  return result;
+}
+</code></pre>
+<ol start="2">
+<li>apply 的实现</li>
+</ol>
+<pre><code class="language-javascript">Function.prototype.myApply = function(context) {
+  if (typeof this !== 'function') {
+    throw new TypeError('Error')
+  }
+  context = context || window;
+  context.fn = this;
+  var result;
+  if (arguments[1]) {
+    result = context.fn(...arguments[1]);
+  } else {
+    result = context.fn();
+  }
+  delete context.fn;
+  return result;
+}
+
+</code></pre>
+<ol start="3">
+<li>bind 特点：</li>
+</ol>
+<ul>
+<li>函数调用，改变this ；</li>
+<li>返回一个绑定this的函数；</li>
+<li>接收多个参数 ；</li>
+<li>支持柯里化形式传参 ，如 fn(1)(2)；</li>
+</ul>
+<p>实现 bind 时注意以下要点：</p>
+<ul>
+<li>箭头函数的 <strong>this</strong> 永远指向它所在的作用域；</li>
+<li>函数作为构造函数用 <strong>new</strong> 关键字调用时，不应该改变其 <strong>this</strong> 指向，因为 <strong>new绑定</strong> 的优先级高于 <strong>显示绑定</strong> 和 <strong>硬绑定</strong>；</li>
+</ul>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN bind Polyfill</a></p>
+<pre><code class="language-javascript">// bind 
+
+if(!Function.prototype.bind) {
+  Function.prototype.bind = function(oThis) {
+    // 待绑定对象 不是函数，抛出错误
+    if (typeof this !== 'function') {
+      throw new TypeError(&quot;Function.prototype.bind - what is trying to be bound is not callable&quot;);
+    }
+    // 获取 绑定对象后的参数
+    var aArgs = Array.prototype.slice.call(arguments, 1),
+    // 待绑定对象 即待绑定函数
+      fToBind = this,
+
+      fNOP = function() {},
+      // 返回一个函数
+      fBound = function() {
+        //同样因为支持柯里化形式传参我们需要再次获取存储参数
+        var newArgs = Array.prototype.slice.call(arguments);
+         // 执行时的this指针时函数，指向原this;
+         // 否则指向新this对象
+         // this instanceof fNOP === true时,说明返回的fBound被当做new的构造函数调用 
+        return fToBind.apply(
+          this instanceof fNOP ? this : oThis,
+          aArgs.concat(newArgs)
+        );
+      };
+     // 维护原型关系
+     // 箭头函数没有 prototype，箭头函数this永远指向它所在的作用域
+    if (this.prototype) {
+      // 当执行Function.prototype.bind()时, this为Function.prototype 
+      // this.prototype(即Function.prototype.prototype)为undefined
+      fNOP.prototype = this.prototype; 
+    }
+    // 下行的代码使fBound.prototype是fNOP的实例,因此
+    // 返回的fBound若作为new的构造函数,new生成的新对象作为this传入fBound,新对象的__proto__就是fNOP的实例
+    fBound.prototype = new fNOP();
+    return fBound;
+  }
+}
+</code></pre>
+<h3 id="setweaksetmapweakmap"><a class="header" href="#setweaksetmapweakmap">Set、WeakSet、Map、WeakMap</a></h3>
+<ol>
+<li>Set</li>
+</ol>
+<ul>
+<li>成员不能重复</li>
+<li>只有键值，没有键名，有点类似数组。</li>
+<li>可以遍历，方法有add, delete, has</li>
+<li>有 size、clear 方法</li>
+</ul>
+<ol start="2">
+<li>WeakSet
+和 Set 类似，是不重复的值的集合，但有两个区别：</li>
+</ol>
+<ul>
+<li>成员都是对象</li>
+<li>成员都是弱引用，随时可以消失。 </li>
+</ul>
+<p>弱引用，如果其他对象都不再引用该对象，gc直接回收， 因此不能遍历，方法有add, delete,has</p>
+<p>WeakSet的一个用处，是储存DOM节点，而不用担心这些节点从文档移除时，会引发内存泄漏</p>
+<ol start="3">
+<li>Map</li>
+</ol>
+<ul>
+<li>本质上是键值对的集合，类似集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。</li>
+<li>可以遍历，方法很多，可以跟各种数据格式转换</li>
+<li>有 size()、set(key, value)、get(key)、has(key)、delete(key)、clear()</li>
+<li>遍历方式： keys()、values()、entries()、forEach()</li>
+</ul>
+<ol start="4">
+<li>WeakMap</li>
+</ol>
+<ul>
+<li>直接受对象作为键名（null除外），不接受其他类型的值作为键名
+键名所指向的对象，不计入垃圾回收机制
+不能遍历，方法同get,set,has,delete</li>
+</ul>
+<h3 id="new-关键字"><a class="header" href="#new-关键字">new 关键字</a></h3>
+<h4 id="1-new-的作用"><a class="header" href="#1-new-的作用">1. new 的作用</a></h4>
+<pre><code class="language-javascript">// 实现一个new
+var Dog = function(name) {
+  this.name = name
+}
+Dog.prototype.bark = function() {
+  console.log('wangwang')
+}
+Dog.prototype.sayName = function() {
+  console.log('my name is ' + this.name)
+}
+let sanmao = new Dog('三毛')
+sanmao.sayName();
+sanmao.bark();
+</code></pre>
+<ul>
+<li>创建一个新对象obj；</li>
+<li>把 obj 的 <em>_proto</em>_ 指向 Dog.prototype 实现继承；</li>
+<li>执行构造函数，传递参数，改变this指向 ：Dog.call(obj, …args)；</li>
+<li>若 Dog 函数的返回值是对象，则返回该对象，否则返回 obj；</li>
+<li>最后把 obj 赋值给sanmao；</li>
+</ul>
+<h4 id="2-实现"><a class="header" href="#2-实现">2. 实现</a></h4>
+<pre><code class="language-javascript">function _new(fn, ...arg) {
+    const obj = Object.create(fn.prototype);
+    const ret = fn.apply(obj, arg);
+    return ret instanceof Object ? ret : obj;
+}
+</code></pre>
+<h3 id="promise"><a class="header" href="#promise">Promise</a></h3>
+<pre><code class="language-javascript">// 判断变量否为function
+const isFunction = variable =&gt; typeof variable === 'function'
+// 定义Promise的三种状态常量
+const PENDING = 'PENDING'
+const FULFILLED = 'FULFILLED'
+const REJECTED = 'REJECTED'
+
+class MyPromise {
+  constructor (handle) {
+    if (!isFunction(handle)) {
+      throw new Error('MyPromise must accept a function as a parameter')
+    }
+    // 添加状态
+    this._status = PENDING
+    // 添加状态
+    this._value = undefined
+    // 添加成功回调函数队列
+    this._fulfilledQueues = []
+    // 添加失败回调函数队列
+    this._rejectedQueues = []
+    // 执行handle
+    try {
+      handle(this._resolve.bind(this), this._reject.bind(this)) 
+    } catch (err) {
+      this._reject(err)
+    }
+  }
+  // 添加resovle时执行的函数
+  _resolve (val) {
+    const run = () =&gt; {
+      if (this._status !== PENDING) return
+      // 依次执行成功队列中的函数，并清空队列
+      const runFulfilled = (value) =&gt; {
+        let cb;
+        while (cb = this._fulfilledQueues.shift()) {
+          cb(value)
+        }
+      }
+      // 依次执行失败队列中的函数，并清空队列
+      const runRejected = (error) =&gt; {
+        let cb;
+        while (cb = this._rejectedQueues.shift()) {
+          cb(error)
+        }
+      }
+      /* 如果resolve的参数为Promise对象，则必须等待该Promise对象状态改变后,
+        当前Promsie的状态才会改变，且状态取决于参数Promsie对象的状态
+      */
+      if (val instanceof MyPromise) {
+        val.then(value =&gt; {
+          this._value = value
+          this._status = FULFILLED
+          runFulfilled(value)
+        }, err =&gt; {
+          this._value = err
+          this._status = REJECTED
+          runRejected(err)
+        })
+      } else {
+        this._value = val
+        this._status = FULFILLED
+        runFulfilled(val)
+      }
+    }
+    // 为了支持同步的Promise，这里采用异步调用
+    setTimeout(run, 0)
+  }
+  // 添加reject时执行的函数
+  _reject (err) { 
+    if (this._status !== PENDING) return
+    // 依次执行失败队列中的函数，并清空队列
+    const run = () =&gt; {
+      this._status = REJECTED
+      this._value = err
+      let cb;
+      while (cb = this._rejectedQueues.shift()) {
+        cb(err)
+      }
+    }
+    // 为了支持同步的Promise，这里采用异步调用
+    setTimeout(run, 0)
+  }
+  // 添加then方法
+  then (onFulfilled, onRejected) {
+    const { _value, _status } = this
+    // 返回一个新的Promise对象
+    return new MyPromise((onFulfilledNext, onRejectedNext) =&gt; {
+      // 封装一个成功时执行的函数
+      let fulfilled = value =&gt; {
+        try {
+          if (!isFunction(onFulfilled)) {
+            onFulfilledNext(value)
+          } else {
+            let res =  onFulfilled(value);
+            if (res instanceof MyPromise) {
+              // 如果当前回调函数返回MyPromise对象，必须等待其状态改变后在执行下一个回调
+              res.then(onFulfilledNext, onRejectedNext)
+            } else {
+              //否则会将返回结果直接作为参数，传入下一个then的回调函数，并立即执行下一个then的回调函数
+              onFulfilledNext(res)
+            }
+          }
+        } catch (err) {
+          // 如果函数执行出错，新的Promise对象的状态为失败
+          onRejectedNext(err)
+        }
+      }
+      // 封装一个失败时执行的函数
+      let rejected = error =&gt; {
+        try {
+          if (!isFunction(onRejected)) {
+            onRejectedNext(error)
+          } else {
+              let res = onRejected(error);
+              if (res instanceof MyPromise) {
+                // 如果当前回调函数返回MyPromise对象，必须等待其状态改变后在执行下一个回调
+                res.then(onFulfilledNext, onRejectedNext)
+              } else {
+                //否则会将返回结果直接作为参数，传入下一个then的回调函数，并立即执行下一个then的回调函数
+                onFulfilledNext(res)
+              }
+          }
+        } catch (err) {
+          // 如果函数执行出错，新的Promise对象的状态为失败
+          onRejectedNext(err)
+        }
+      }
+      switch (_status) {
+        // 当状态为pending时，将then方法回调函数加入执行队列等待执行
+        case PENDING:
+          this._fulfilledQueues.push(fulfilled)
+          this._rejectedQueues.push(rejected)
+          break
+        // 当状态已经改变时，立即执行对应的回调函数
+        case FULFILLED:
+          fulfilled(_value)
+          break
+        case REJECTED:
+          rejected(_value)
+          break
+      }
+    })
+  }
+  // 添加catch方法
+  catch (onRejected) {
+    return this.then(undefined, onRejected)
+  }
+  // 添加静态resolve方法
+  static resolve (value) {
+    // 如果参数是MyPromise实例，直接返回这个实例
+    if (value instanceof MyPromise) return value
+    return new MyPromise(resolve =&gt; resolve(value))
+  }
+  // 添加静态reject方法
+  static reject (value) {
+    return new MyPromise((resolve ,reject) =&gt; reject(value))
+  }
+  // 添加静态all方法
+  static all (list) {
+    return new MyPromise((resolve, reject) =&gt; {
+      /**
+       * 返回值的集合
+       */
+      let values = []
+      let count = 0
+      for (let [i, p] of list.entries()) {
+        // 数组参数如果不是MyPromise实例，先调用MyPromise.resolve
+        this.resolve(p).then(res =&gt; {
+          values[i] = res
+          count++
+          // 所有状态都变成fulfilled时返回的MyPromise状态就变成fulfilled
+          if (count === list.length) resolve(values)
+        }, err =&gt; {
+          // 有一个被rejected时返回的MyPromise状态就变成rejected
+          reject(err)
+        })
+      }
+    })
+  }
+  // 添加静态race方法
+  static race (list) {
+    return new MyPromise((resolve, reject) =&gt; {
+      for (let p of list) {
+        // 只要有一个实例率先改变状态，新的MyPromise的状态就跟着改变
+        this.resolve(p).then(res =&gt; {
+          resolve(res)
+        }, err =&gt; {
+          reject(err)
+        })
+      }
+    })
+  }
+  finally (cb) {
+    return this.then(
+      value  =&gt; MyPromise.resolve(cb()).then(() =&gt; value),
+      reason =&gt; MyPromise.resolve(cb()).then(() =&gt; { throw reason })
+    );
+  }
+}
+
+</code></pre>
+<h3 id="prototype__proto__"><a class="header" href="#prototype__proto__">prototype、__proto__</a></h3>
+<p>当谈到继承时，JavaScript 只有一种结构：对象。每个实例对象（ object ）都有一个私有属性（称之为 <strong>__proto__</strong> ）指向它的构造函数的原型对象（ <strong>prototype</strong> ）。该原型对象也有一个自己的原型对象( <strong>__proto__</strong> ) ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个<strong>原型链</strong>中的最后一个环节。</p>
+<p>在 JavaScript 中，函数（function）是允许拥有属性的。所有的函数会有一个特别的属性 —— <strong>prototype</strong> 。</p>
+<pre><code class="language-javascript">function doSomething(){}
+console.log( doSomething.prototype );
+// 和声明函数的方式无关，
+// JavaScript 中的函数永远有一个默认原型属性。
+var doSomething = function(){};
+console.log( doSomething.prototype );
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../something/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../something/Flux&amp;Redux&amp;Mobx.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../something/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../something/Flux&amp;Redux&amp;Mobx.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
